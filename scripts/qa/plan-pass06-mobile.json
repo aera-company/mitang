@@ -1,0 +1,6 @@
+[
+ {"name":"invest","selector":"#investimento","kind":"timed","anchor":0.05,"times":[150,1600]},
+ {"name":"axis","selector":"#investimento [data-iv=\"axis\"]","kind":"timed","anchor":0.5,"times":[2200]},
+ {"name":"closing","selector":"#proximo-passo","kind":"timed","anchor":0.05,"times":[150,2400]},
+ {"name":"cta","selector":"#proximo-passo [data-cl=\"rule\"]","kind":"timed","anchor":0.5,"times":[2000]}
+]

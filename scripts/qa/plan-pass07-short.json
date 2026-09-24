@@ -1,0 +1,4 @@
+[
+ {"name":"hero","selector":"#inicio","kind":"timed","anchor":0,"times":[3200]},
+ {"name":"reframe","selector":"#vaga .rf-track","kind":"scrub","offsets":[0,-0.7,-1.2,-1.6,-2.2]}
+]

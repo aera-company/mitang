@@ -1,0 +1,28 @@
+[
+ {
+  "name": "07-mobile-hero",
+  "selector": "#inicio",
+  "kind": "timed",
+  "anchor": 0,
+  "times": [
+   3600
+  ]
+ },
+ {
+  "name": "08-mobile-pipeline",
+  "selector": "#fluxo",
+  "kind": "scrub",
+  "offsets": [
+   -0.55
+  ]
+ },
+ {
+  "name": "09-mobile-investment",
+  "selector": "#investimento [data-iv=\"axis\"]",
+  "kind": "timed",
+  "anchor": 0.55,
+  "times": [
+   2600
+  ]
+ }
+]

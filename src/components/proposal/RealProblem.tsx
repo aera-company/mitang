@@ -1,0 +1,116 @@
+"use client";
+
+import { useRef } from "react";
+import { useGsapContext } from "@/components/motion/useGsapContext";
+import { ACTS, PROBLEM_CHAIN } from "@/lib/constants";
+import { playRealProblem } from "./motion/problemMotion";
+import { Section } from "./ui/Section";
+
+/** Word spans for the scrubbed colour shift (text stays one sentence). */
+function Words({ text, name }: { text: string; name: string }) {
+  return (
+    <>
+      {text.split(" ").map((w, i) => (
+        <span key={i} data-rp={name}>
+          {w}{" "}
+        </span>
+      ))}
+    </>
+  );
+}
+
+export function RealProblem() {
+  const scope = useRef<HTMLElement>(null);
+
+  useGsapContext(
+    scope,
+    {
+      desktop: "(min-width: 1024px) and (prefers-reduced-motion: no-preference)",
+      mobile: "(max-width: 1023px) and (prefers-reduced-motion: no-preference)",
+      reduce: "(prefers-reduced-motion: reduce)",
+    },
+    (active) => playRealProblem(scope.current!, active),
+  );
+
+  return (
+    <Section
+      ref={scope}
+      id="problema"
+      index="03"
+      label="O problema real"
+      act={ACTS.thesis}
+      state="light"
+    >
+      <div className="aera-grid section-pad gap-y-16">
+        {/* Emphasis moves from line 1 to line 2 as it is read (scrubbed). */}
+        <h2 data-rp="title" id="problema-title" className="type-h2 col-span-full lg:col-span-10">
+          <span className="block">
+            <Words text="O desafio não é gerar leads." name="w1" />
+          </span>
+          <span className="block text-[var(--muted)]">
+            <Words text="É saber quais leads importam." name="w2" />
+          </span>
+        </h2>
+
+        {/* MITANG context — only to show we understand the market (§4). */}
+        <div data-rp="context" className="col-span-full lg:col-span-5">
+          <p className="type-micro text-[var(--muted)]">Survey offshore</p>
+          <p className="type-h3 mt-4 max-w-[22ch]">
+            Um mercado em que o lead certo vale mais que mil contatos.
+          </p>
+          <p className="type-body mt-6 text-[var(--muted)]">
+            Offshore não é um jogo de volume. É um jogo de contexto, timing,
+            relacionamento e precisão.
+          </p>
+          <ul className="mt-10 text-[clamp(24px,2.2vw,32px)] font-semibold leading-[1.15] tracking-tight">
+            <li>Projeto certo.</li>
+            <li>Empresa certa.</li>
+            <li>Decisor certo.</li>
+            <li>Momento certo.</li>
+          </ul>
+        </div>
+
+        {/* The chain: each step enters as it is reached. */}
+        <div className="col-span-full lg:col-start-7 lg:col-span-6">
+          <ol data-rp="chain" aria-label="Do mercado à oportunidade" className="relative">
+            <span
+              aria-hidden
+              data-rp="rail"
+              className="absolute bottom-3 left-[5px] top-3 w-px origin-top bg-[var(--line-strong)]"
+            />
+            {PROBLEM_CHAIN.map((step, i) => {
+              const last = i === PROBLEM_CHAIN.length - 1;
+              return (
+                <li key={step} data-rp="step" className="relative flex items-baseline gap-6 py-3 pl-8">
+                  <span
+                    aria-hidden
+                    className={`absolute left-0 top-1/2 size-[11px] -translate-y-1/2 rounded-full border ${
+                      last
+                        ? "border-[var(--signal)] bg-[var(--signal)] shadow-[0_0_0_4px_var(--signal-soft)]"
+                        : "border-[var(--fg)] bg-[var(--bg)]"
+                    }`}
+                  />
+                  <span className="type-index w-6 text-[var(--muted)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span
+                    className={`text-[clamp(22px,2vw,30px)] font-medium tracking-tight ${
+                      last ? "text-[var(--signal)]" : ""
+                    }`}
+                  >
+                    {step}
+                  </span>
+                </li>
+              );
+            })}
+          </ol>
+          <p className="type-body mt-10 text-[var(--muted)]">
+            Em mercados B2B técnicos, o volume sozinho não cria negócio. A
+            oportunidade nasce da combinação entre relevância, timing e contexto
+            comercial.
+          </p>
+        </div>
+      </div>
+    </Section>
+  );
+}

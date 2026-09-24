@@ -1,0 +1,7 @@
+[
+ {"name":"content","selector":"#conteudo [data-sc=\"grid\"]","kind":"timed","anchor":0.7,"times":[150,500,900,1500]},
+ {"name":"days","selector":"[id=\"90-dias\"] [data-nd=\"timeline\"]","kind":"scrub","offsets":[0.85,0.7,0.55,0.4,0.25,0.1]},
+ {"name":"team","selector":"#time","kind":"timed","anchor":0.05,"times":[150,500,900,1600]},
+ {"name":"scope","selector":"#escopo","kind":"scrub","offsets":[0.4,0.0]},
+ {"name":"metrics","selector":"#metricas","kind":"scrub","offsets":[0.3]}
+]

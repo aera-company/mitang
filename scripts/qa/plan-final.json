@@ -1,0 +1,53 @@
+[
+ {
+  "name": "01-hero",
+  "selector": "#inicio",
+  "kind": "timed",
+  "anchor": 0,
+  "times": [
+   3600
+  ]
+ },
+ {
+  "name": "02-reframe",
+  "selector": "#vaga .rf-track",
+  "kind": "scrub",
+  "offsets": [
+   -0.5,
+   -2.2
+  ]
+ },
+ {
+  "name": "03-growth-system",
+  "selector": "#sistema [data-gs=\"system\"]",
+  "kind": "scrub",
+  "offsets": [
+   0.12
+  ]
+ },
+ {
+  "name": "04-pipeline",
+  "selector": "#fluxo",
+  "kind": "scrub",
+  "offsets": [
+   -0.3
+  ]
+ },
+ {
+  "name": "05-ninety-days",
+  "selector": "[id=\"90-dias\"] [data-nd=\"timeline\"]",
+  "kind": "scrub",
+  "offsets": [
+   0.05
+  ]
+ },
+ {
+  "name": "06-investment",
+  "selector": "#investimento [data-iv=\"block\"]",
+  "kind": "timed",
+  "anchor": 0.25,
+  "times": [
+   2600
+  ]
+ }
+]

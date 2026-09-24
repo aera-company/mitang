@@ -1,0 +1,383 @@
+@import "tailwindcss";
+
+/* ============================================================
+   AERA × MITANG — TOKENS
+   Base from the brief (§7); signal colours sampled from MITANG
+   (teal #0D6873, deep petrol #021C25). Accent = active information,
+   never decoration: located points, the active step, AERA's coverage.
+   ============================================================ */
+:root {
+  --carbon: #080a0b;
+  --paper: #f1efe8;
+  --ink: #0e1113;
+  --steel: #8e9498;
+  --petrol: #021c25;
+  --teal: #0d6873;
+  /* Teal lifted for dark grounds (7.4:1 on carbon, 6.5:1 on petrol). */
+  --teal-lift: #5fa9b1;
+
+  --line-dark: rgba(241, 239, 232, 0.12);
+  --line-light: rgba(14, 17, 19, 0.12);
+  --muted-dark: rgba(241, 239, 232, 0.58);
+  --muted-light: rgba(14, 17, 19, 0.62);
+
+  /* Active state — sections re-map these (see .state-dark / .state-light). */
+  --bg: var(--carbon);
+  --fg: var(--paper);
+  --muted: var(--muted-dark);
+  --line: var(--line-dark);
+  --line-strong: rgba(241, 239, 232, 0.24);
+  /* Active information — the only place colour enters the page. */
+  --signal: var(--teal-lift);
+  --signal-soft: rgba(95, 169, 177, 0.16);
+
+  /* Grid — 12 columns desktop, 4 below 1024. */
+  --cols: 12;
+  --margin: 48px;
+  --gutter: 32px;
+  --section-y: clamp(112px, 12vw, 192px);
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --margin: 32px;
+    --gutter: 20px;
+  }
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --cols: 4;
+    --margin: 32px;
+    --gutter: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --margin: 20px;
+    --gutter: 16px;
+    --section-y: 96px;
+  }
+}
+
+.state-dark {
+  --bg: var(--carbon);
+  --fg: var(--paper);
+  --muted: var(--muted-dark);
+  --line: var(--line-dark);
+  --line-strong: rgba(241, 239, 232, 0.24);
+  --signal: var(--teal-lift);
+  --signal-soft: rgba(95, 169, 177, 0.16);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* MITANG's deep petrol — reserved for the system flow and the closing. */
+.state-petrol {
+  --bg: var(--petrol);
+  --fg: var(--paper);
+  --muted: rgba(241, 239, 232, 0.6);
+  --line: rgba(127, 189, 195, 0.14);
+  --line-strong: rgba(127, 189, 195, 0.3);
+  --signal: var(--teal-lift);
+  --signal-soft: rgba(95, 169, 177, 0.2);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.state-light {
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --muted: var(--muted-light);
+  --line: var(--line-light);
+  --line-strong: rgba(14, 17, 19, 0.24);
+  --signal: var(--teal);
+  --signal-soft: rgba(13, 104, 115, 0.12);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-steel: var(--steel);
+  --color-signal: var(--signal);
+  --font-sans: var(--font-sans-src);
+  --font-mono: var(--font-mono-src);
+}
+
+html,
+body {
+  background: var(--carbon);
+  color: var(--paper);
+  font-family: var(--font-sans-src), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--paper);
+  color: var(--carbon);
+}
+
+/* ============================================================
+   TYPOGRAPHY — sentence case headlines; caps only in short
+   technical labels (decided 23/09).
+   ============================================================ */
+
+/* Oversized display: hero and the reframe word. */
+.type-display {
+  font-weight: 650;
+  font-stretch: 90%;
+  font-size: clamp(60px, 9vw, 152px);
+  line-height: 0.9;
+  letter-spacing: -0.038em;
+}
+
+/* Section headlines. */
+.type-h2 {
+  font-weight: 620;
+  font-stretch: 92%;
+  font-size: clamp(38px, 5vw, 80px);
+  line-height: 0.98;
+  letter-spacing: -0.032em;
+  text-wrap: balance;
+}
+
+/* Tablets get their own step: phone size read too small at 768–1023. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .type-h2 {
+    font-size: clamp(48px, 6.4vw, 64px);
+  }
+
+  .type-display {
+    font-size: clamp(72px, 11vw, 112px);
+  }
+}
+
+.type-h3 {
+  font-weight: 600;
+  font-size: clamp(21px, 1.7vw, 26px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.type-lead {
+  font-weight: 450;
+  font-size: clamp(19px, 1.45vw, 23px);
+  line-height: 1.45;
+  letter-spacing: -0.008em;
+  max-width: 44ch;
+  text-wrap: pretty;
+}
+
+.type-body {
+  font-weight: 400;
+  font-size: 16.5px;
+  line-height: 1.6;
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+/* Short technical labels printed into the composition. */
+.type-micro {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Indexes, coordinates, technical markers only. */
+.type-index {
+  font-family: var(--font-mono-src), ui-monospace, monospace;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================
+   GRID
+   ============================================================ */
+.aera-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  column-gap: var(--gutter);
+  padding-inline: var(--margin);
+}
+
+.section-pad {
+  padding-block: var(--section-y);
+}
+
+/* Located point: the one mark that carries the signal colour. */
+.signal-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: var(--signal);
+  box-shadow: 0 0 0 4px var(--signal-soft);
+}
+
+/* Hairline list: rows separated by the section's rule colour. */
+.rule-list > * {
+  border-top: 1px solid var(--line);
+}
+
+.rule-list > *:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.aera-mark {
+  -webkit-mask: url("/brand/aera-mark.png") left center / contain no-repeat;
+  mask: url("/brand/aera-mark.png") left center / contain no-repeat;
+  background: currentColor;
+}
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+:where(a, button, [role="button"], input, textarea, select):focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 4px;
+}
+
+a,
+button,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   MOTION — initial states. `.motion` is set on <html> by an inline
+   script only when motion is allowed, and removed after 3s if the
+   scenes never start (JS failure) — content is never stranded hidden.
+   ============================================================ */
+
+/* Clips a line of display type without cutting glyph overshoots. */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  padding: 0.1em 0.06em 0.12em;
+  margin: -0.1em -0.06em -0.12em;
+}
+
+.line-mask > span {
+  display: block;
+}
+
+.motion [data-hero="line"] {
+  transform: translateY(112%);
+}
+
+.motion [data-hero="fade"],
+.motion #inicio [data-radar] {
+  opacity: 0;
+}
+
+.motion [data-hero="rule-v"] {
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.motion [data-hero="rule-h"] {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.motion [data-hero="tick"] {
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+
+/* Market dot field, revealed by the sweep (--sweep 0 → 360deg). */
+.hero-dots {
+  --sweep: 360deg;
+  -webkit-mask: conic-gradient(#000 var(--sweep), transparent 0);
+  mask: conic-gradient(#000 var(--sweep), transparent 0);
+}
+
+.motion .hero-dots {
+  --sweep: 0deg;
+}
+
+.motion [data-hero="signal"],
+.motion [data-hero="readout"],
+.motion [data-hero="arm"] {
+  opacity: 0;
+}
+
+.hero-link {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.motion .hero-link {
+  stroke-dashoffset: 1;
+}
+
+/* ============================================================
+   REFRAME (vaga → operação)
+   Desktop with motion: a sticky stage over a 300vh track.
+   Phones and reduced motion: the same content as an editorial flow.
+   ============================================================ */
+.rf-desk {
+  display: none;
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .rf-track {
+    height: 320vh;
+  }
+
+  .rf-stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  .rf-desk {
+    display: block;
+  }
+
+  .rf-flow {
+    display: none;
+  }
+}
+
+.motion [data-rf="word"],
+.motion [data-rf="op"],
+.motion [data-rf="core"] {
+  opacity: 0;
+}
+
+/* Operation word — larger than the hero display: it takes the screen. */
+.type-operation {
+  font-weight: 650;
+  font-stretch: 90%;
+  font-size: clamp(64px, 17vw, 300px);
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+}
