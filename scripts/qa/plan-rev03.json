@@ -1,0 +1,4 @@
+[
+ {"name":"1-entrada","selector":"#vaga .rf-track","kind":"timed","anchor":0.45,"times":[250,700,1500]},
+ {"name":"2-cena","selector":"#vaga .rf-track","kind":"scrub","offsets":[0,-0.6,-1.1,-1.55,-1.8,-2.2]}
+]

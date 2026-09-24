@@ -1,0 +1,2 @@
+[ {"name":"1-fluxo","selector":"#vaga","kind":"timed","anchor":0,"times":[1800]},
+  {"name":"2-operacao","selector":"#vaga ul","kind":"timed","anchor":0.3,"times":[1800]} ]

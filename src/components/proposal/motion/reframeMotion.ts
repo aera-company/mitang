@@ -3,8 +3,9 @@ import { revealOnEnter } from "./reveal";
 
 /* ---------------------------------------------------------------------------
    REFRAME — vaga → operação (desktop: scrubbed over a sticky 320vh track).
+   on enter   the first sentence settles in, contained (fade + short rise)
    0.08–0.30  the post's words appear on the stage
-   0.28–0.42  "pessoa." shrinks away; the post and the quote recede
+   0.28–0.42  the first sentence, the post and the quote recede
    0.42–0.62  the words converge on one point (the signal)
    0.60–0.70  the intro leaves
    0.64–0.90  "operação." takes the screen
@@ -61,6 +62,20 @@ export function playReframe(root: HTMLElement, active: Record<string, boolean>) 
       : p.y + periodEl.offsetHeight * 0.74 - c.y;
   };
 
+  // Contained entrance for the first sentence: it states, it doesn't land.
+  gsap.fromTo(
+    q('[data-rf="title"], [data-rf="post"], [data-rf="quote"]'),
+    { opacity: 0, y: 14 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power2.out",
+      stagger: 0.08,
+      scrollTrigger: { trigger: track, start: "top 75%", once: true },
+    },
+  );
+
   const tl = gsap.timeline({
     defaults: { ease: "none" },
     scrollTrigger: {
@@ -80,8 +95,9 @@ export function playReframe(root: HTMLElement, active: Record<string, boolean>) 
     0.08,
   );
 
-  // "pessoa." goes; the post recedes.
-  tl.to(q('[data-rf="person"]'), { scale: 0.35, opacity: 0, transformOrigin: "0% 80%", duration: 0.12, ease: "power2.in" }, 0.3)
+  // The first sentence, the post and the quote recede — the stage is
+  // cleared for the words, then for "operação.".
+  tl.to(q('[data-rf="title"]'), { opacity: 0.4, duration: 0.12 }, 0.3)
     .to(q('[data-rf="post"], [data-rf="quote"]'), { opacity: 0.22, duration: 0.12 }, 0.3);
 
   // Converge on one point.

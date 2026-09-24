@@ -46,8 +46,8 @@ function Quote() {
   );
 }
 
-/* The post as origin: a person was asked for → the post's words come apart
-   and converge on one point → an operation takes the screen. */
+/* The post as origin: the challenge goes beyond one role → the post's words
+   come apart and converge on one point → an operation takes the screen. */
 export function JobReframe() {
   const scope = useRef<HTMLElement>(null);
 
@@ -72,17 +72,14 @@ export function JobReframe() {
             </div>
             <div className="col-start-6 col-span-7">
               <h2 data-rf="title" className="type-h2">
-                Vocês procuravam uma{" "}
-                <span data-rf="person" className="inline-block">
-                  pessoa.
-                </span>
+                O desafio vai além de uma função.
               </h2>
               <div data-rf="quote">
                 <Quote />
               </div>
               {/* The stage below is visual; this is what it says. */}
               <p className="sr-only">
-                O que a vaga pede: {JOB_WORDS.join(", ")}. Nós enxergamos uma
+                O que a vaga pede: {JOB_WORDS.join(", ")}. Ele pede uma
                 operação.
               </p>
             </div>
@@ -126,8 +123,10 @@ export function JobReframe() {
             aria-hidden
             className="absolute inset-x-0 bottom-0 px-[var(--margin)] pb-[9vh]"
           >
-            <p className="type-h2 text-[var(--muted)]">Nós enxergamos uma</p>
-            <p data-rf="op-word" className="type-operation mt-3 origin-bottom-left">
+            <p className="text-[clamp(28px,2.6vw,42px)] font-medium tracking-[-0.02em] text-[var(--muted)]">
+              Ele pede uma
+            </p>
+            <p data-rf="op-word" className="type-operation mt-2 origin-bottom-left">
               operação
               {/* The converged signal lands here and stays as the full stop. */}
               <span data-rf="period" className="text-[var(--signal)]">
@@ -145,7 +144,7 @@ export function JobReframe() {
         </div>
         <div data-reveal className="col-span-full lg:col-start-6 lg:col-span-7">
           <h2 id="vaga-title" className="type-h2">
-            Vocês procuravam uma pessoa.
+            O desafio vai além de uma função.
           </h2>
           <Quote />
         </div>
@@ -163,7 +162,9 @@ export function JobReframe() {
           ))}
         </ul>
         <div data-reveal className="col-span-full">
-          <p className="type-h2 text-[var(--muted)]">Nós enxergamos uma</p>
+          <p className="text-[clamp(24px,5vw,40px)] font-medium tracking-[-0.02em] text-[var(--muted)]">
+            Ele pede uma
+          </p>
           <p className="type-display mt-2">operação.</p>
         </div>
       </div>
