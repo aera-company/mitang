@@ -27,7 +27,7 @@ em `next.config.ts` (existe `~/package-lock.json`).
 - Logo MITANG: wordmark tipográfico placeholder (`MitangWordmark`) até o arquivo oficial.
 - Cores MITANG: teal `#0D6873`, petróleo `#021C25` (tokens `--teal`, `--petrol`),
   só como informação ativa. O PASS 01 ainda usa só neutros.
-- Valores: R$ 9.800 + R$ 14.500/mês. A variante §25 não entra.
+- Modelo comercial (revisto 24/09): piloto de 90 dias a R$ 9.800/mês, implantação incluída, total do ciclo R$ 29.400. Sem linguagem de desconto ou condição especial.
 
 ## Estrutura
 

@@ -13,11 +13,13 @@ import { RealProblem } from "@/components/proposal/RealProblem";
 import { SalesContent } from "@/components/proposal/SalesContent";
 import { Scope } from "@/components/proposal/Scope";
 import { TeamModel } from "@/components/proposal/TeamModel";
+import { WorkingModel } from "@/components/proposal/WorkingModel";
 
 type Props = { searchParams: Promise<{ h?: string }> };
 
-/* Five acts, fifteen chapters (brief §9). `?h=en` previews the English hero
-   headline for the visual test in §10 — Portuguese is the default. */
+/* Five acts, sixteen chapters (brief §9 + working model, 24/09).
+   `?h=en` previews the English hero headline for the visual test in §10 —
+   Portuguese is the default. */
 export default async function Proposal({ searchParams }: Props) {
   const { h } = await searchParams;
 
@@ -37,6 +39,7 @@ export default async function Proposal({ searchParams }: Props) {
       <Automation />
       <NinetyDays />
       <TeamModel />
+      <WorkingModel />
       {/* IV — Proposta */}
       <Scope />
       <Metrics />

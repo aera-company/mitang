@@ -1,0 +1,7 @@
+[
+ {"name":"1-atuacao-topo","selector":"#atuacao","kind":"timed","anchor":0.0,"times":[1800]},
+ {"name":"2-atuacao-ritmo","selector":"#atuacao [data-wm=\"lane\"]","kind":"timed","anchor":0.15,"times":[2000]},
+ {"name":"3-atuacao-ritmo-b","selector":"#atuacao [data-wm=\"lane\"]:nth-child(3)","kind":"timed","anchor":0.15,"times":[1800]},
+ {"name":"4-atuacao-conjunto","selector":"#atuacao [data-wm=\"joint\"]","kind":"timed","anchor":0.15,"times":[2600]},
+ {"name":"5-transicao-escopo","selector":"#escopo","kind":"timed","anchor":0.5,"times":[1600]}
+]

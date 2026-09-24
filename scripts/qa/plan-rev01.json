@@ -1,0 +1,8 @@
+[
+ {"name":"a-system","selector":"#sistema h2","kind":"scrub","offsets":[0.06]},
+ {"name":"b-canvas","selector":"#inteligencia figure","kind":"timed","anchor":0.35,"times":[3200]},
+ {"name":"c-automation","selector":"#automacao","kind":"timed","anchor":0,"times":[1800]},
+ {"name":"d-scope","selector":"#escopo","kind":"timed","anchor":0,"times":[1800]},
+ {"name":"e-metrics","selector":"#metricas","kind":"timed","anchor":0,"times":[1800]},
+ {"name":"f-investment","selector":"#investimento","kind":"timed","anchor":0,"times":[2800]}
+]

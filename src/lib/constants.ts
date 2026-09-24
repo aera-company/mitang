@@ -8,13 +8,14 @@ export const CONTACT = {
   email: "sales@aera.company",
 };
 
-/** Headline values of the pilot (brief §24). The §25 variant stays out. */
+/** Commercial model — revised by Tiago 24/09: one monthly price, setup
+    included, 3-month cycle. No discount / promo language anywhere. */
 export const PRICING = {
-  setup: "R$ 9.800",
-  monthly: "R$ 14.500",
+  monthly: "R$ 9.800",
+  cycleTotal: "R$ 29.400",
 };
 
-/** The five acts that group the fifteen sections. */
+/** The five acts that group the sixteen sections. */
 export const ACTS = {
   thesis: "I — Tese",
   system: "II — Sistema",
@@ -50,83 +51,43 @@ export type Module = {
   output: string;
 };
 
+/* Each module lists only what the later sections do NOT detail (radar,
+   ABM, content and automation have their own chapters). */
 export const MODULES: Module[] = [
   {
     n: "01",
-    name: "Intelligence",
+    name: "Inteligência",
     title: "Mapear o mercado",
-    items: [
-      "contas-alvo",
-      "projetos",
-      "empresas",
-      "movimentações relevantes",
-      "segmentos",
-      "potenciais demandas",
-      "sinais comerciais",
-    ],
+    items: ["contas e projetos-alvo", "movimentações e sinais comerciais", "segmentos prioritários"],
     output: "Radar de oportunidades",
   },
   {
     n: "02",
-    name: "Targeting",
+    name: "Contas",
     title: "Encontrar as pessoas certas",
-    items: [
-      "ICP",
-      "account mapping",
-      "decisores",
-      "influenciadores",
-      "compradores",
-      "engenharia, suprimentos e operações",
-      "procurement",
-      "business development",
-    ],
-    output: "Account map",
+    items: ["ICP", "mapa de contas", "decisores e influenciadores"],
+    output: "Mapa de contas",
   },
   {
     n: "03",
-    name: "Connection",
+    name: "Conexão",
     title: "Criar contexto para a abordagem",
-    items: [
-      "LinkedIn",
-      "e-mail",
-      "conteúdo",
-      "landing pages",
-      "apresentações",
-      "cases",
-      "mensagens comerciais",
-      "campanhas específicas",
-    ],
-    output: "Outreach engine",
+    items: ["mensagens por perfil", "materiais comerciais", "LinkedIn e e-mail"],
+    output: "Cadências de abordagem",
   },
   {
     n: "04",
     name: "Pipeline",
     title: "Transformar interesse em processo",
-    items: [
-      "CRM",
-      "classificação",
-      "lead scoring",
-      "follow-up",
-      "próximos passos",
-      "histórico",
-      "passagem para o comercial",
-    ],
-    output: "Commercial pipeline",
+    items: ["CRM e qualificação", "follow-up e próximos passos", "passagem para o comercial"],
+    output: "Pipeline comercial",
   },
   {
     n: "05",
-    name: "Learning",
+    name: "Aprendizado",
     title: "Fazer a operação aprender",
-    items: [
-      "resultados",
-      "respostas",
-      "objeções",
-      "segmentos",
-      "canais",
-      "conversão",
-      "oportunidades abertas",
-    ],
-    output: "Growth intelligence",
+    items: ["respostas e objeções", "conversão por segmento e canal", "ajuste de prioridades"],
+    output: "Leitura de resultados",
   },
 ];
 
@@ -141,35 +102,36 @@ export const FLOW = [
   "Oportunidade",
 ];
 
-/** Demonstration rows for the market canvas — abstract, no real companies. */
+/** SIMULATION rows for the market canvas — fictitious accounts, signals and
+    contacts, only to show the format. Never read as research. */
 export const DEMO_ROWS = [
   {
-    account: "Conta A · operadora",
+    account: "Exemplo A · operadora",
     signal: "Nova campanha de survey prevista",
-    fit: "High",
+    fit: "Alta",
     contact: "Gerência de operações",
-    status: "Research",
+    status: "Pesquisa",
   },
   {
-    account: "Conta B · EPC",
+    account: "Exemplo B · EPC",
     signal: "Projeto submarino em fase de contratação",
-    fit: "High",
+    fit: "Alta",
     contact: "Engenharia de projetos",
-    status: "Contact",
+    status: "Contato",
   },
   {
-    account: "Conta C · renováveis",
+    account: "Exemplo C · renováveis",
     signal: "Levantamento geofísico em licenciamento",
-    fit: "Medium",
+    fit: "Média",
     contact: "Suprimentos",
-    status: "Conversation",
+    status: "Conversa",
   },
   {
-    account: "Conta D · descomissionamento",
+    account: "Exemplo D · descomissionamento",
     signal: "Plano de descomissionamento publicado",
-    fit: "Medium",
+    fit: "Média",
     contact: "Direção técnica",
-    status: "Meeting",
+    status: "Reunião",
   },
 ];
 
@@ -194,17 +156,12 @@ export const SALES_ASSETS = [
 ];
 
 export const AUTOMATION_USES = [
-  "Pesquisa de contas",
-  "Enriquecimento de informações",
+  "Pesquisa e enriquecimento de contas",
   "Classificação de leads",
-  "Resumo de empresas",
   "Preparação de reuniões",
-  "Alertas",
-  "Follow-up",
+  "Alertas e lembretes de follow-up",
   "Organização do CRM",
-  "Geração assistida de materiais",
-  "Dashboards",
-  "Inteligência acumulada",
+  "Materiais e dashboards com apoio de IA",
 ];
 
 export type Phase = {
@@ -229,7 +186,7 @@ export const PHASES: Phase[] = [
       "stack atual, CRM e base disponível",
       "critérios de qualificação",
     ],
-    deliverables: ["Diagnóstico", "ICP", "Account map v01", "Pipeline v01"],
+    deliverables: ["Diagnóstico", "ICP", "Mapa de contas v01", "Pipeline v01"],
   },
   {
     range: "31–60 dias",
@@ -244,7 +201,7 @@ export const PHASES: Phase[] = [
       "tracking",
       "prospecção estruturada",
     ],
-    deliverables: ["Radar", "Outreach", "Content", "Automation"],
+    deliverables: ["Radar", "Abordagem", "Conteúdo", "Automação"],
   },
   {
     range: "61–90 dias",
@@ -258,7 +215,7 @@ export const PHASES: Phase[] = [
       "evolução de materiais",
       "integração mais profunda com o comercial",
     ],
-    deliverables: ["Learning loop", "Dashboard", "Priorities v02"],
+    deliverables: ["Ciclo de aprendizado", "Dashboard", "Prioridades v02"],
   },
 ];
 
@@ -290,7 +247,7 @@ export const SCOPE = [
     items: [
       "planejamento de growth",
       "ICP e segmentação",
-      "account mapping",
+      "mapeamento de contas",
       "radar de oportunidades",
       "pesquisa comercial",
     ],
@@ -324,7 +281,7 @@ export const SCOPE = [
     items: [
       "acompanhamento recorrente",
       "reuniões de alinhamento",
-      "priorização",
+      "priorização mensal das frentes",
       "interface próxima com o comercial",
     ],
   },
@@ -355,13 +312,43 @@ export const METRICS = [
   "Motivos de perda e objeções",
 ];
 
-export const SETUP_INCLUDES = [
-  "diagnóstico",
-  "ICP",
-  "pipeline",
-  "CRM",
-  "automações iniciais",
-  "dashboard",
-  "desenho operacional",
-  "configuração da base de trabalho",
+/* Working model (added 24/09): hybrid, close to the team, no fixed on-site
+   quota. Lanes read across one month; `kind` sets the glyph. */
+export type CadenceLane = {
+  when: string;
+  title: string;
+  detail: string;
+  kind: "weekly" | "continuous" | "periodic" | "monthly";
+};
+
+export const CADENCE: CadenceLane[] = [
+  {
+    when: "Semanal",
+    title: "Reunião de operação · 45–60 min",
+    detail: "Radar, contas, contatos, respostas, oportunidades e próximos passos.",
+    kind: "weekly",
+  },
+  {
+    when: "Contínuo",
+    title: "Acompanhamento remoto",
+    detail: "Execução, ajustes e troca direta com o comercial ao longo da semana.",
+    kind: "continuous",
+  },
+  {
+    when: "Periódico",
+    title: "Encontros presenciais na MITANG",
+    detail: "Imersão, planejamento, revisão de oportunidades e alinhamento com o comercial.",
+    kind: "periodic",
+  },
+  {
+    when: "Mensal",
+    title: "Reunião de estratégia e performance",
+    detail: "Aprendizados, performance, prioridades e foco do próximo ciclo.",
+    kind: "monthly",
+  },
 ];
+
+export const JOINT = {
+  aera: ["organização", "inteligência", "comunicação", "tecnologia"],
+  mitang: ["conhecimento técnico", "mercado", "validação", "comercial"],
+};

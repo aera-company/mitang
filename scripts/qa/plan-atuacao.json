@@ -1,0 +1,6 @@
+[
+ {"name":"1-transicao-time","selector":"#atuacao","kind":"timed","anchor":0.55,"times":[1600]},
+ {"name":"2-atuacao-ritmo","selector":"#atuacao","kind":"timed","anchor":0.0,"times":[2200]},
+ {"name":"3-atuacao-conjunto","selector":"#atuacao [data-wm=\"joint\"]","kind":"timed","anchor":0.4,"times":[2600]},
+ {"name":"4-transicao-escopo","selector":"#escopo","kind":"timed","anchor":0.55,"times":[1600]}
+]

@@ -76,7 +76,7 @@ export function GrowthSystem() {
                   ))}
                 </ul>
                 <div className="mt-6 lg:mt-auto lg:pt-8">
-                  <p className="type-index mb-2 text-[var(--muted)]">Output</p>
+                  <p className="type-index mb-2 text-[var(--muted)]">Entrega</p>
                   <Tag signal className="group-hover:border-[var(--signal)]">{m.output}</Tag>
                 </div>
               </li>

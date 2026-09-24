@@ -39,10 +39,10 @@ await run("safari-1440", { viewport: { width: 1440, height: 900 } }, [
   ["problem", top("#problema", 0.1)], ["system", top("#sistema [data-gs=system]", 0.3)],
   ["pipeline", top("#fluxo [data-pl=flow]", 0.35)], ["intel", top("#inteligencia [data-mi=radar]", 0.4)],
   ["abm", top("#abm", 0)], ["days", top("[id=\"90-dias\"] [data-nd=timeline]", 0.2)],
-  ["invest", top("#investimento [data-iv=axis]", 0.6)], ["closing", top("#proximo-passo", 0)],
+  ["invest", top("#investimento", 0)], ["closing", top("#proximo-passo", 0)],
 ]);
 await run("iphone-15", { ...devices["iPhone 15"] }, [
   ["reframe", top("#vaga", 0)], ["problem", top("#problema", 0)], ["pipeline", top("#fluxo [data-pl=row]", 0.3)],
   ["intel", top("#inteligencia [data-mi=radar]", 0.3)], ["days", top("[id=\"90-dias\"]", 0)],
-  ["invest", top("#investimento [data-iv=axis]", 0.5)], ["closing", top("#proximo-passo [data-cl=rule]", 0.5)],
+  ["invest", top("#investimento", 0)], ["closing", top("#proximo-passo [data-cl=rule]", 0.5)],
 ]);

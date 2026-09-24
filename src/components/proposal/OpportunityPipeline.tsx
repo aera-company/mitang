@@ -32,7 +32,7 @@ export function OpportunityPipeline() {
   );
 
   return (
-    <Section ref={scope} id="fluxo" index="05" label="Signal → Opportunity" act={ACTS.system} state="petrol">
+    <Section ref={scope} id="fluxo" index="05" label="Fluxo comercial" act={ACTS.system} state="petrol">
       <div className="aera-grid section-pad gap-y-16">
         <h2 data-reveal id="fluxo-title" className="type-h2 col-span-full lg:col-span-8">
           Do sinal à oportunidade.

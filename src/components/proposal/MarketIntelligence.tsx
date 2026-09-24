@@ -5,12 +5,12 @@ import { useGsapContext } from "@/components/motion/useGsapContext";
 import { ACTS, DEMO_ROWS } from "@/lib/constants";
 import { playIntelligence } from "./motion/intelligenceMotion";
 import { Radar, type RadarPoint } from "./ui/Radar";
-import { Section, Tag } from "./ui/Section";
+import { Section } from "./ui/Section";
 
-const COLS = ["Account", "Signal", "Fit", "Contact", "Status"] as const;
-const STAGES = ["Research", "Contact", "Conversation", "Meeting"];
+const COLS = ["Conta", "Sinal", "Aderência", "Contato", "Etapa"] as const;
+const STAGES = ["Pesquisa", "Contato", "Conversa", "Reunião"];
 
-/* Demo accounts on the plot — High fit reads as an active signal. */
+/* Simulated accounts on the plot — high fit reads as an active signal. */
 const POINTS: RadarPoint[] = [
   { bearing: 38, range: 0.62, label: "A", active: true },
   { bearing: 292, range: 0.44, label: "B", active: true },
@@ -19,7 +19,7 @@ const POINTS: RadarPoint[] = [
 ];
 
 function Fit({ level }: { level: string }) {
-  const n = level === "High" ? 3 : level === "Medium" ? 2 : 1;
+  const n = level === "Alta" ? 3 : level === "Média" ? 2 : 1;
   return (
     <span className="inline-flex items-center gap-2">
       <span aria-hidden className="inline-flex gap-[3px]">
@@ -62,8 +62,8 @@ function Stage({ status }: { status: string }) {
   );
 }
 
-/** "Conta A · operadora" → "A" (the point's label on the radar). */
-const keyOf = (account: string) => account.replace(/^Conta\s+/, "").charAt(0);
+/** "Exemplo A · operadora" → "A" (the point's label on the radar). */
+const keyOf = (account: string) => account.replace(/^Exemplo\s+/, "").charAt(0);
 
 export function MarketIntelligence() {
   const scope = useRef<HTMLElement>(null);
@@ -97,19 +97,30 @@ export function MarketIntelligence() {
           comprar, por quê, em qual contexto e com quais sinais de oportunidade.
         </p>
 
+        {/* Stated before any example — radar and canvas alike: nothing below
+            is research (rev. 24/09). */}
+        <div data-reveal className="col-span-full border-t border-[var(--line-strong)] pt-6">
+          <p className="type-micro inline-flex items-center border border-[var(--fg)] px-2.5 py-1.5 font-semibold">
+            Simulação / formato ilustrativo
+          </p>
+          <p className="type-body mt-4 max-w-[62ch] text-[var(--muted)]">
+            As contas, os sinais e os contatos a seguir são fictícios. Mostram o
+            formato do radar e do canvas comercial, não uma pesquisa realizada.
+          </p>
+        </div>
+
         <div className="col-span-full flex flex-col items-center gap-6 lg:col-span-4 lg:items-start">
           <div data-mi="radar" className="p-5">
             <Radar size={300} points={POINTS} rings={[0.33, 0.66, 1]} sweep highlight={hot} />
           </div>
           <p data-mi="legend" className="type-index flex items-center gap-3 text-[var(--muted)]">
-            <span className="signal-dot" /> Fit alto · sinal ativo
+            <span className="signal-dot" /> Aderência alta · sinal ativo
           </p>
         </div>
 
         <figure data-mi="canvas" className="col-span-full lg:col-start-5 lg:col-span-8">
-          <figcaption className="mb-5 flex items-center justify-between gap-4">
-            <span className="type-micro text-[var(--muted)]">Canvas comercial</span>
-            <Tag>Demonstração</Tag>
+          <figcaption className="type-micro mb-5 text-[var(--muted)]">
+            Canvas comercial · simulação
           </figcaption>
 
           {/* Desktop table */}
@@ -160,9 +171,6 @@ export function MarketIntelligence() {
               </li>
             ))}
           </ul>
-          <p className="type-index mt-4 text-[var(--muted)]">
-            Contas fictícias, apenas para ilustrar o formato.
-          </p>
         </figure>
       </div>
     </Section>

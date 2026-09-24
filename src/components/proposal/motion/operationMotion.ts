@@ -103,3 +103,35 @@ export function playRows(root: HTMLElement, active: Active) {
   const q = gsap.utils.selector(root);
   revealOnEnter([...q("[data-reveal]"), ...q("[data-row]")]);
 }
+
+/**
+ * Working model: the month is laid lane by lane (lines drawn, marks placed),
+ * then the two sides of the joint diagram converge on one result.
+ */
+export function playWorkingModel(root: HTMLElement, active: Active) {
+  if (active.reduce) return;
+  const q = gsap.utils.selector(root);
+  revealOnEnter(q("[data-reveal]"));
+
+  const lanes = q('[data-wm="lane"]');
+  gsap.set(lanes, { opacity: 0, y: 14 });
+  gsap.set(q('[data-wm="line"]'), { scaleX: 0 });
+  gsap.set(q('[data-wm="mark"]'), { scale: 0 });
+  gsap
+    .timeline({ defaults: { ease: "expo.out" }, scrollTrigger: { trigger: lanes[0], start: "top 82%", once: true } })
+    .to(lanes, { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 }, 0)
+    .to(q('[data-wm="line"]'), { scaleX: 1, duration: 1, ease: "power3.inOut", stagger: 0.15 }, 0.3)
+    .to(q('[data-wm="mark"]'), { scale: 1, duration: 0.5, stagger: 0.06, ease: "back.out(2)" }, 0.35);
+
+  const joint = q('[data-wm="joint"]')[0];
+  gsap.set(q('[data-wm="side"]'), { opacity: 0, y: 12 });
+  gsap.set(q('[data-wm="bracket"]'), { scaleY: 0 });
+  gsap.set(q('[data-wm="stem"]'), { scaleY: 0 });
+  gsap.set(q('[data-wm="result"]'), { opacity: 0, y: 8 });
+  gsap
+    .timeline({ defaults: { ease: "expo.out" }, scrollTrigger: { trigger: joint, start: "top 78%", once: true } })
+    .to(q('[data-wm="side"]'), { opacity: 1, y: 0, duration: 0.8, stagger: 0.12 }, 0)
+    .to(q('[data-wm="bracket"]'), { scaleY: 1, duration: 0.6, ease: "power2.inOut" }, 0.45)
+    .to(q('[data-wm="stem"]'), { scaleY: 1, duration: 0.4, ease: "power2.inOut" }, 0.95)
+    .to(q('[data-wm="result"]'), { opacity: 1, y: 0, duration: 0.8 }, 1.2);
+}

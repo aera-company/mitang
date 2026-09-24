@@ -11,11 +11,16 @@ export function Scope() {
   useScene(scope, playRows);
 
   return (
-    <Section ref={scope} id="escopo" index="12" label="Escopo" act={ACTS.offer}>
+    <Section ref={scope} id="escopo" index="13" label="Escopo" act={ACTS.offer}>
       <div className="aera-grid section-pad gap-y-14">
         <h2 data-reveal id="escopo-title" className="type-h2 col-span-full lg:col-span-8">
           O que está incluído.
         </h2>
+        <p data-reveal className="type-lead col-span-full lg:col-start-7 lg:col-span-6">
+          Formatos, entregas e frentes são priorizados mês a mês, conforme a
+          necessidade comercial. O escopo define o que pode entrar na operação,
+          não um volume fixo de produção.
+        </p>
 
         <dl className="col-span-full">
           {SCOPE.map((s, i) => (

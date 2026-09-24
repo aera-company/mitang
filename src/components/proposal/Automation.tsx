@@ -25,7 +25,7 @@ export function Automation() {
           <p className="type-h3 mt-8">A decisão comercial continua humana.</p>
         </div>
 
-        <ol className="col-span-full grid grid-cols-1 gap-x-[var(--gutter)] md:grid-flow-col md:grid-cols-2 md:grid-rows-6 lg:col-start-7 lg:col-span-6">
+        <ol className="col-span-full grid grid-cols-1 gap-x-[var(--gutter)] md:grid-flow-col md:grid-cols-2 md:grid-rows-3 lg:col-start-7 lg:col-span-6">
           {AUTOMATION_USES.map((u, i) => (
             <li
               key={u}

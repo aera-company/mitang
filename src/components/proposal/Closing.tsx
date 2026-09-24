@@ -15,7 +15,7 @@ export function Closing() {
   useScene(scope, playClosing);
 
   return (
-    <Section ref={scope} id="proximo-passo" index="15" label="Próximo passo" act={ACTS.closing} state="petrol">
+    <Section ref={scope} id="proximo-passo" index="16" label="Próximo passo" act={ACTS.closing} state="petrol">
       <div className="aera-grid section-pad relative min-h-[90svh] content-between gap-y-16">
         {/* The hero's plot returns, small: the next point to locate. */}
         <div
@@ -51,7 +51,7 @@ export function Closing() {
           <div data-reveal className="lg:col-span-6">
             <Pairing />
             <p className="type-index mt-4 text-[var(--muted)]">
-              Growth / Intelligence / Communication / Technology
+              Growth / Inteligência / Comunicação / Tecnologia
             </p>
           </div>
           <div data-reveal className="lg:col-start-7 lg:col-span-6">
