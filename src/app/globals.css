@@ -397,3 +397,78 @@ button,
 .motion .rp-photo {
   --rp-gray: 1;
 }
+
+/* ============================================================
+   BEYOND EXECUTION (section 10, 26/09) — strata of capacity.
+   Built by default; with motion, layers start as outlines and are
+   laid as their block is read.
+   ============================================================ */
+.bx-layer {
+  border-color: var(--fg);
+  background: color-mix(in srgb, var(--fg) 5%, transparent);
+  transition:
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    color 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.motion .bx-layer:not(.is-built) {
+  border-color: var(--line-strong);
+  border-style: dashed;
+  background: transparent;
+  color: var(--muted);
+}
+
+.bx-layer.is-top {
+  box-shadow: inset 3px 0 0 var(--signal);
+}
+
+[data-bx="num"] {
+  transition: color 0.6s ease;
+}
+
+.is-on [data-bx="num"] {
+  color: var(--fg);
+}
+
+/* The routine underneath: a quiet running dash. */
+.bx-routine {
+  background-image: repeating-linear-gradient(90deg, var(--fg) 0 10px, transparent 10px 20px);
+  background-size: 20px 3px;
+  animation: bx-run 1.6s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes bx-run {
+  to {
+    background-position: 20px 0;
+  }
+}
+
+/* ============================================================
+   MITANG RADAR (section 11, 26/09) — V01 interface
+   ============================================================ */
+.rd-app {
+  background: color-mix(in srgb, var(--fg) 2.5%, var(--bg));
+}
+
+.rd-tabs {
+  scrollbar-width: none;
+}
+
+.rd-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tab and selection changes: the new data settles in. */
+.rd-in {
+  animation: rd-in 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes rd-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}

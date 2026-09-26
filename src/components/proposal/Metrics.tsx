@@ -12,7 +12,7 @@ export function Metrics() {
   useScene(scope, playRows);
 
   return (
-    <Section ref={scope} id="metricas" index="14" label="Métricas" act={ACTS.offer}>
+    <Section ref={scope} id="metricas" index="16" label="Métricas" act={ACTS.offer}>
       <div className="aera-grid section-pad gap-y-14">
         <div data-reveal className="col-span-full lg:col-span-5">
           <h2 id="metricas-title" className="type-h2">

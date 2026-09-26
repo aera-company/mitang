@@ -19,7 +19,7 @@ export function Scope() {
   const variant = useVariant();
 
   return (
-    <Section ref={scope} id="escopo" index="13" label="Escopo" act={ACTS.offer}>
+    <Section ref={scope} id="escopo" index="15" label="Escopo" act={ACTS.offer}>
       <div className="aera-grid section-pad gap-y-14">
         <h2 data-reveal id="escopo-title" className="type-h2 col-span-full lg:col-span-8">
           O que está incluído.

@@ -19,7 +19,7 @@ export function Investment() {
   useScene(scope, playInvestment);
 
   return (
-    <Section ref={scope} id="investimento" index="15" label="Modelo comercial" act={ACTS.offer} state="light">
+    <Section ref={scope} id="investimento" index="17" label="Modelo comercial" act={ACTS.offer} state="light">
       <div data-iv="block" className="aera-grid section-pad relative gap-y-12">
         <h2 id="investimento-title" className="type-micro col-span-full text-[var(--muted)]">
           Piloto / 90 dias

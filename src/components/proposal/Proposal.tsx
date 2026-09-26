@@ -1,11 +1,13 @@
 import { ABM } from "./ABM";
 import { Automation } from "./Automation";
+import { Beyond } from "./Beyond";
 import { Closing } from "./Closing";
 import { GrowthSystem } from "./GrowthSystem";
 import { Hero } from "./Hero";
 import { Investment } from "./Investment";
 import { JobReframe } from "./JobReframe";
 import { MarketIntelligence } from "./MarketIntelligence";
+import { MitangRadar } from "./MitangRadar";
 import { Metrics } from "./Metrics";
 import { NinetyDays } from "./NinetyDays";
 import { OpportunityPipeline } from "./OpportunityPipeline";
@@ -40,6 +42,8 @@ export function Proposal({ variant, headline = "pt" }: Props) {
         {/* III · Operação */}
         <SalesContent />
         <Automation />
+        <Beyond />
+        <MitangRadar />
         <NinetyDays />
         <TeamModel />
         <WorkingModel />

@@ -26,7 +26,7 @@ export function TeamModel() {
   useScene(scope, playTeam);
 
   return (
-    <Section ref={scope} id="time" index="11" label="Como a AERA entra" act={ACTS.operation} state="light">
+    <Section ref={scope} id="time" index="13" label="Como a AERA entra" act={ACTS.operation} state="light">
       <div data-tm="board" className="aera-grid section-pad gap-y-14">
         <h2 data-reveal id="time-title" className="type-h2 col-span-full lg:col-span-10">
           Uma extensão do time.{" "}

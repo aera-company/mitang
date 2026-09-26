@@ -1,73 +1,34 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useGsapContext } from "@/components/motion/useGsapContext";
-import { ACTS, DEMO_ROWS } from "@/lib/constants";
+import { ACTS } from "@/lib/constants";
+import { RADAR_ACCOUNTS } from "@/lib/radar";
 import { playIntelligence } from "./motion/intelligenceMotion";
 import { Radar, type RadarPoint } from "./ui/Radar";
 import { Section } from "./ui/Section";
 
-const COLS = ["Conta", "Sinal", "Aderência", "Contato", "Etapa"] as const;
-const STAGES = ["Pesquisa", "Contato", "Conversa", "Reunião"];
+/* The same fictitious accounts that the MITANG Radar (section 11) opens.
+   High fit reads as an active signal. */
+const POINTS: RadarPoint[] = RADAR_ACCOUNTS.map((a) => ({
+  bearing: a.bearing,
+  range: a.range,
+  label: a.key,
+  active: a.fit === "Alta",
+}));
 
-/* Simulated accounts on the plot — high fit reads as an active signal. */
-const POINTS: RadarPoint[] = [
-  { bearing: 38, range: 0.62, label: "A", active: true },
-  { bearing: 292, range: 0.44, label: "B", active: true },
-  { bearing: 118, range: 0.78, label: "C" },
-  { bearing: 205, range: 0.7, label: "D" },
-];
-
-function Fit({ level }: { level: string }) {
-  const n = level === "Alta" ? 3 : level === "Média" ? 2 : 1;
-  return (
-    <span className="inline-flex items-center gap-2">
-      <span aria-hidden className="inline-flex gap-[3px]">
-        {[1, 2, 3].map((i) => (
-          <span
-            key={i}
-            data-mi="bar"
-            className={`h-[9px] w-[3px] origin-bottom ${
-              i <= n
-                ? n === 3
-                  ? "bg-[var(--signal)]"
-                  : "bg-[var(--fg)]"
-                : "bg-[var(--line-strong)]"
-            }`}
-          />
-        ))}
-      </span>
-      <span className="type-index">{level}</span>
-    </span>
-  );
-}
-
-function Stage({ status }: { status: string }) {
-  const at = STAGES.indexOf(status);
-  return (
-    <span className="inline-flex flex-col gap-1.5">
-      <span aria-hidden className="flex gap-[3px]">
-        {STAGES.map((s, i) => (
-          <span
-            key={s}
-            data-mi="seg"
-            className={`h-[3px] w-4 origin-left ${
-              i < at ? "bg-[var(--fg)]" : i === at ? "bg-[var(--signal)]" : "bg-[var(--line-strong)]"
-            }`}
-          />
-        ))}
-      </span>
-      <span className="type-index">{status}</span>
-    </span>
-  );
-}
-
-/** "Exemplo A · operadora" → "A" (the point's label on the radar). */
-const keyOf = (account: string) => account.replace(/^Exemplo\s+/, "").charAt(0);
+/* What the read records per account (26/09: the full canvas moved into the
+   MITANG Radar mockup; here only its fields, to avoid showing it twice). */
+const FIELDS = [
+  ["Conta", "Empresas e projetos com aderência aos serviços da MITANG."],
+  ["Sinal", "O fato que torna a conta relevante agora."],
+  ["Aderência", "Quanto a conta se aproxima do perfil prioritário."],
+  ["Decisor", "Quem decide, quem influencia e por onde entrar."],
+  ["Etapa", "Onde a relação está e qual é o próximo passo."],
+] as const;
 
 export function MarketIntelligence() {
   const scope = useRef<HTMLElement>(null);
-  const [hot, setHot] = useState<string | null>(null);
 
   useGsapContext(
     scope,
@@ -104,74 +65,42 @@ export function MarketIntelligence() {
             Simulação / formato ilustrativo
           </p>
           <p className="type-body mt-4 max-w-[62ch] text-[var(--muted)]">
-            As contas, os sinais e os contatos a seguir são fictícios. Mostram o
-            formato do radar e do canvas comercial, não uma pesquisa realizada.
+            As contas marcadas no radar são fictícias. Mostram o formato da
+            leitura, não uma pesquisa realizada.
           </p>
         </div>
 
         <div className="col-span-full flex flex-col items-center gap-6 lg:col-span-4 lg:items-start">
           <div data-mi="radar" className="p-5">
-            <Radar size={300} points={POINTS} rings={[0.33, 0.66, 1]} sweep highlight={hot} />
+            <Radar size={300} points={POINTS} rings={[0.33, 0.66, 1]} sweep />
           </div>
           <p data-mi="legend" className="type-index flex items-center gap-3 text-[var(--muted)]">
             <span className="signal-dot" /> Aderência alta · sinal ativo
           </p>
         </div>
 
-        <figure data-mi="canvas" className="col-span-full lg:col-start-5 lg:col-span-8">
-          <figcaption className="type-micro mb-5 text-[var(--muted)]">
-            Canvas comercial · simulação
-          </figcaption>
-
-          {/* Desktop table */}
-          <table className="hidden w-full border-collapse text-left md:table">
-            <thead>
-              <tr className="border-b border-[var(--line-strong)]">
-                {COLS.map((c) => (
-                  <th key={c} scope="col" className="type-micro pb-3 pr-4 font-medium text-[var(--muted)]">
-                    {c}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {DEMO_ROWS.map((r) => (
-                <tr
-                  key={r.account}
-                  data-mi="row"
-                  onMouseEnter={() => setHot(keyOf(r.account))}
-                  onMouseLeave={() => setHot(null)}
-                  className="border-b border-[var(--line)] align-top transition-colors duration-200 hover:bg-[var(--signal-soft)]"
-                >
-                  <td className="py-4 pr-4 text-[15px] font-medium">{r.account}</td>
-                  <td className="py-4 pr-4 text-[15px] text-[var(--muted)]">{r.signal}</td>
-                  <td className="py-4 pr-4 pt-[18px]">
-                    <Fit level={r.fit} />
-                  </td>
-                  <td className="py-4 pr-4 text-[15px] text-[var(--muted)]">{r.contact}</td>
-                  <td className="py-4 pt-[18px]">
-                    <Stage status={r.status} />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-
-          {/* Mobile: one record per row */}
-          <ul className="md:hidden">
-            {DEMO_ROWS.map((r) => (
-              <li key={r.account} data-mi="row" className="border-t border-[var(--line)] py-5">
-                <p className="text-[17px] font-medium">{r.account}</p>
-                <p className="mt-1 text-[15px] text-[var(--muted)]">{r.signal}</p>
-                <p className="mt-2 text-[14px] text-[var(--muted)]">{r.contact}</p>
-                <div className="mt-4 flex flex-wrap items-end gap-x-8 gap-y-3">
-                  <Fit level={r.fit} />
-                  <Stage status={r.status} />
-                </div>
-              </li>
+        <div className="col-span-full lg:col-start-6 lg:col-span-7">
+          <p className="type-micro mb-2 text-[var(--muted)]">O que a leitura registra em cada conta</p>
+          <dl>
+            {FIELDS.map(([k, v]) => (
+              <div
+                key={k}
+                data-mi="row"
+                className="grid grid-cols-1 gap-x-[var(--gutter)] gap-y-1 border-b border-[var(--line)] py-4 md:grid-cols-[10rem_1fr]"
+              >
+                <dt className="text-[17px] font-medium">{k}</dt>
+                <dd className="text-[15.5px] text-[var(--muted)]">{v}</dd>
+              </div>
             ))}
-          </ul>
-        </figure>
+          </dl>
+          <a
+            data-mi="row"
+            href="#radar"
+            className="type-index mt-6 inline-flex items-center gap-2 text-[var(--muted)] underline-offset-4 transition-colors hover:text-[var(--fg)] hover:underline"
+          >
+            Na operação, essa leitura vive no MITANG Radar · seção 11 <span aria-hidden>↓</span>
+          </a>
+        </div>
       </div>
     </Section>
   );

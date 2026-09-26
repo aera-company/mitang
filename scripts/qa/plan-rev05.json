@@ -1,0 +1,4 @@
+[
+ {"name":"1-alem-camada-2","selector":"#alem [data-bx=\"block\"]:nth-child(2)","kind":"timed","anchor":0.45,"times":[1400]},
+ {"name":"2-alem-camada-4","selector":"#alem [data-bx=\"block\"]:nth-child(4)","kind":"timed","anchor":0.45,"times":[1400]}
+]

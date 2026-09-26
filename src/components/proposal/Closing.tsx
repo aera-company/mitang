@@ -26,14 +26,14 @@ const COPY: Record<
   }
 > = {
   commercial: {
-    index: "16",
+    index: "18",
     title: ["Começar pelo", "mercado."],
     lead: "O primeiro passo é uma imersão com o time da MITANG para identificar onde estão hoje as melhores oportunidades, como o comercial opera e quais frentes devem entrar primeiro no radar.",
     readout: "Imersão com o time da MITANG",
     ctas: [{ label: "Vamos conversar", href: mail("AERA × MITANG") }],
   },
   intro: {
-    index: "15",
+    index: "17",
     title: ["Começar pela", "conversa."],
     lead: "Uma reunião para entender as prioridades comerciais da MITANG, aprofundar o contexto atual e definir quais frentes devem entrar primeiro na operação.",
     readout: "Conversa com o time da MITANG",

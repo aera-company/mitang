@@ -31,7 +31,7 @@ em `next.config.ts` (existe `~/package-lock.json`).
 
 ## Estrutura
 
-`src/app/page.tsx` compõe 15 seções em 5 atos. Seções em
+`Proposal.tsx` compõe 18 seções em 5 atos (17 em /mitang). Dados fictícios do MITANG Radar em `src/lib/radar.ts`. Seções em
 `src/components/proposal/`; conteúdo e listas em `src/lib/constants.ts`.
 `?h=en` mostra a headline alternativa da hero ("From signal to opportunity").
 

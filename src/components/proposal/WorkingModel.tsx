@@ -49,7 +49,7 @@ export function WorkingModel() {
   useScene(scope, playWorkingModel);
 
   return (
-    <Section ref={scope} id="atuacao" index="12" label="Modelo de atuação" act={ACTS.operation} state="light">
+    <Section ref={scope} id="atuacao" index="14" label="Modelo de atuação" act={ACTS.operation} state="light">
       <div className="aera-grid section-pad gap-y-14">
         <h2 data-reveal id="atuacao-title" className="type-h2 col-span-full lg:col-span-9">
           Próximo ao time.{" "}

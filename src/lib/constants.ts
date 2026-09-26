@@ -15,7 +15,7 @@ export const PRICING = {
   cycleTotal: "R$ 29.400",
 };
 
-/** The five acts that group the sixteen sections. */
+/** The five acts that group the eighteen sections. */
 export const ACTS = {
   thesis: "I · Tese",
   system: "II · Sistema",
@@ -102,39 +102,6 @@ export const FLOW = [
   "Oportunidade",
 ];
 
-/** SIMULATION rows for the market canvas — fictitious accounts, signals and
-    contacts, only to show the format. Never read as research. */
-export const DEMO_ROWS = [
-  {
-    account: "Exemplo A · operadora",
-    signal: "Nova campanha de survey prevista",
-    fit: "Alta",
-    contact: "Gerência de operações",
-    status: "Pesquisa",
-  },
-  {
-    account: "Exemplo B · EPC",
-    signal: "Projeto submarino em fase de contratação",
-    fit: "Alta",
-    contact: "Engenharia de projetos",
-    status: "Contato",
-  },
-  {
-    account: "Exemplo C · renováveis",
-    signal: "Levantamento geofísico em licenciamento",
-    fit: "Média",
-    contact: "Suprimentos",
-    status: "Conversa",
-  },
-  {
-    account: "Exemplo D · descomissionamento",
-    signal: "Plano de descomissionamento publicado",
-    fit: "Média",
-    contact: "Direção técnica",
-    status: "Reunião",
-  },
-];
-
 export const ABM_ROLES = [
   { role: "Operação", entry: "Case técnico" },
   { role: "Engenharia", entry: "One-page técnico" },
@@ -168,6 +135,8 @@ export type Phase = {
   range: string;
   verb: string;
   items: string[];
+  /** What happens to the MITANG Radar in this phase (26/09). */
+  radar: { verb: string; items: string[] };
   deliverables: string[];
 };
 
@@ -183,25 +152,29 @@ export const PHASES: Phase[] = [
       "contas prioritárias",
       "processo comercial atual",
       "materiais existentes",
-      "stack atual, CRM e base disponível",
-      "critérios de qualificação",
     ],
-    deliverables: ["Diagnóstico", "ICP", "Mapa de contas v01", "Pipeline v01"],
+    radar: {
+      verb: "Estruturar",
+      items: ["base inicial", "contas", "pipeline", "critérios", "primeira V01 do Radar"],
+    },
+    deliverables: ["Diagnóstico", "ICP", "Mapa de contas v01", "Radar V01"],
   },
   {
     range: "31–60 dias",
     verb: "Ativar",
     items: [
-      "primeiro radar de oportunidades",
       "listas priorizadas",
       "cadências",
       "conteúdos e materiais comerciais",
       "landing pages quando fizer sentido",
-      "automações",
       "tracking",
       "prospecção estruturada",
     ],
-    deliverables: ["Radar", "Abordagem", "Conteúdo", "Automação"],
+    radar: {
+      verb: "Alimentar",
+      items: ["sinais", "decisores", "contatos", "abordagens", "histórico", "automações"],
+    },
+    deliverables: ["Radar em uso", "Abordagem", "Conteúdo", "Automação"],
   },
   {
     range: "61–90 dias",
@@ -215,7 +188,55 @@ export const PHASES: Phase[] = [
       "evolução de materiais",
       "integração mais profunda com o comercial",
     ],
+    radar: {
+      verb: "Evoluir",
+      items: ["insights", "dashboards", "aprendizado", "prioridades", "inteligência acumulada"],
+    },
     deliverables: ["Ciclo de aprendizado", "Dashboard", "Prioridades v02"],
+  },
+];
+
+/* Beyond execution (section 10, added 26/09): what stays with MITANG
+   while the routine runs. `layer` names the stratum it adds. */
+export const BEYOND = [
+  {
+    n: "01",
+    layer: "Inteligência",
+    title: "Inteligência acumulada",
+    text: "Contas, decisores, sinais, histórico, respostas e aprendizados deixam de ficar dispersos e passam a formar uma base de inteligência comercial.",
+  },
+  {
+    n: "02",
+    layer: "Tecnologia",
+    title: "Tecnologia aplicada",
+    text: "CRM, automações, alertas, dashboards e IA conectados à rotina comercial.",
+  },
+  {
+    n: "03",
+    layer: "Disciplinas",
+    title: "Capacidade multidisciplinar",
+    text: "Estratégia, growth, comunicação, design e tecnologia dentro da mesma operação.",
+  },
+  {
+    n: "04",
+    layer: "Comunicação",
+    title: "Comunicação sob demanda",
+    text: "Quando uma oportunidade pede uma peça específica, a operação consegue criar rapidamente:",
+    list: [
+      "landing page",
+      "case",
+      "apresentação",
+      "one-page técnico",
+      "conteúdo",
+      "material para reunião",
+      "campanha específica",
+    ],
+  },
+  {
+    n: "05",
+    layer: "Evolução",
+    title: "Sistema que evolui",
+    text: "Cada contato, resposta, objeção, reunião e oportunidade melhora a próxima decisão.",
   },
 ];
 
@@ -274,7 +295,14 @@ export const SCOPE = [
   },
   {
     area: "Tecnologia",
-    items: ["CRM e pipeline", "automações", "IA aplicada", "tracking", "dashboards"],
+    items: [
+      "MITANG Radar, camada operacional simples",
+      "CRM e pipeline",
+      "automações",
+      "IA aplicada",
+      "tracking",
+      "dashboards",
+    ],
   },
   {
     area: "Gestão",

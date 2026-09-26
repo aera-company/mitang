@@ -13,11 +13,15 @@ export function NinetyDays() {
   useScene(scope, playNinetyDays);
 
   return (
-    <Section ref={scope} id="90-dias" index="10" label="Primeiros 90 dias" act={ACTS.operation} state="light">
+    <Section ref={scope} id="90-dias" index="12" label="Primeiros 90 dias" act={ACTS.operation} state="light">
       <div className="aera-grid section-pad gap-y-14">
         <h2 data-reveal id="90-dias-title" className="type-h2 col-span-full lg:col-span-9">
           90 dias para tirar a operação do papel.
         </h2>
+        <p data-reveal className="type-body col-span-full text-[var(--muted)] lg:col-start-7 lg:col-span-5">
+          O MITANG Radar acompanha os 90 dias: nasce simples no primeiro mês, é
+          alimentado pela operação e evolui com o que ela aprende.
+        </p>
 
         <div data-nd="timeline" className="col-span-full">
           {/* Day axis — desktop only; the timeline turns vertical below 1024. */}
@@ -60,6 +64,14 @@ export function NinetyDays() {
                     <li key={it}>{it}</li>
                   ))}
                 </ul>
+                {/* What happens to the MITANG Radar in this phase. */}
+                <div className="mt-8 border-t border-[var(--line-strong)] pt-4">
+                  <p className="type-micro flex items-center gap-2">
+                    <span aria-hidden className="size-[5px] bg-[var(--signal)]" />
+                    MITANG Radar · {p.radar.verb}
+                  </p>
+                  <p className="mt-2 text-[15px] leading-[1.6]">{p.radar.items.join(" · ")}</p>
+                </div>
                 <div className="mt-8 lg:mt-auto lg:pt-10">
                   <p className="type-index mb-3 text-[var(--muted)]">Entregas</p>
                   <div className="flex flex-wrap gap-2">
