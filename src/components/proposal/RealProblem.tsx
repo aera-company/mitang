@@ -56,11 +56,11 @@ export function RealProblem() {
         <div data-rp="context" className="col-span-full lg:col-span-5">
           <p className="type-micro text-[var(--muted)]">Survey offshore</p>
           <p className="type-h3 mt-4 max-w-[22ch]">
-            Um mercado em que o lead certo vale mais que mil contatos.
+            Quando a precisão importa mais que o volume.
           </p>
           <p className="type-body mt-6 text-[var(--muted)]">
-            Offshore não é um jogo de volume. É um jogo de contexto, timing,
-            relacionamento e precisão.
+            Em vendas B2B técnicas, volume sozinho não resolve. Contexto,
+            timing, relacionamento e precisão fazem a diferença.
           </p>
           <ul className="mt-10 text-[clamp(24px,2.2vw,32px)] font-semibold leading-[1.15] tracking-tight">
             <li>Projeto certo.</li>
