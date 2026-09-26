@@ -381,3 +381,12 @@ button,
   line-height: 0.86;
   letter-spacing: -0.045em;
 }
+
+/* ============================================================
+   MITANG PHOTOGRAPH (single image, 26/09)
+   ============================================================ */
+
+/* B · on paper: printed monochrome — lifted blacks, controlled contrast. */
+.rp-photo {
+  filter: contrast(0.94) brightness(1.04);
+}

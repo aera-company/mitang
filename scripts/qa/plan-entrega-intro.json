@@ -1,0 +1,5 @@
+[
+ {"name":"1-hero","selector":"#inicio","kind":"timed","anchor":0,"times":[3800]},
+ {"name":"2-foto","selector":"#problema [data-rp=\"photo\"]","kind":"timed","anchor":0.28,"times":[2600]},
+ {"name":"3-fechamento","selector":"#proximo-passo","kind":"timed","anchor":0,"times":[3000]}
+]

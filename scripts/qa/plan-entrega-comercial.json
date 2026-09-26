@@ -1,0 +1,4 @@
+[
+ {"name":"1-investimento","selector":"#investimento","kind":"timed","anchor":0,"times":[2800]},
+ {"name":"2-fechamento","selector":"#proximo-passo","kind":"timed","anchor":0,"times":[3000]}
+]

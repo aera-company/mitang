@@ -1,11 +1,11 @@
 // Needs Playwright outside the project (not a dependency): run from a scratch
 // folder with `npm i playwright && npx playwright install webkit`, then
-// `node webkit.mjs <outdir>` against the prod server on :3041.
+// `node webkit.mjs <outdir> [url]` against the prod server on :3041.
 // WebKit (Safari engine) pass: desktop Safari 1440 + iPhone 15 emulation.
 import { webkit, devices } from "playwright";
 import { mkdirSync } from "node:fs";
 const OUT = process.argv[2]; mkdirSync(OUT, { recursive: true });
-const URL = "http://localhost:3041/";
+const URL = process.argv[3] || "http://localhost:3041/";
 
 async function run(name, ctxOpts, stops) {
   const browser = await webkit.launch();
@@ -31,7 +31,7 @@ async function run(name, ctxOpts, stops) {
   await browser.close();
 }
 
-const top = (sel, f = 0) => `(() => { const el = document.querySelector(${JSON.stringify(sel)}); window.scrollTo(0, el.getBoundingClientRect().top + scrollY - innerHeight * ${f}); })()`;
+const top = (sel, f = 0) => `(() => { const el = document.querySelector(${JSON.stringify(sel)}); if (!el) return; window.scrollTo(0, el.getBoundingClientRect().top + scrollY - innerHeight * ${f}); })()`;
 const track = (p) => `(() => { const t = document.querySelector('#vaga .rf-track'); const y = t.getBoundingClientRect().top + scrollY; window.scrollTo(0, y + (t.offsetHeight - innerHeight) * ${p}); })()`;
 
 await run("safari-1440", { viewport: { width: 1440, height: 900 } }, [

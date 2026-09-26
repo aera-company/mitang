@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useGsapContext } from "@/components/motion/useGsapContext";
 import { ACTS, PROBLEM_CHAIN } from "@/lib/constants";
 import { playRealProblem } from "./motion/problemMotion";
+import { MITANG_PHOTO, MitangPhoto } from "./ui/MitangPhoto";
 import { Section } from "./ui/Section";
 
 /** Word spans for the scrubbed colour shift (text stays one sentence). */
@@ -51,6 +52,21 @@ export function RealProblem() {
             <Words text="É saber quais leads importam." name="w2" />
           </span>
         </h2>
+
+        {/* The single MITANG photograph (placement B, chosen 26/09): an
+            editorial pause between the thesis and the reading of the market. */}
+        <figure data-rp="photo" className="col-span-full">
+          <div className="relative aspect-[4/3] overflow-hidden md:aspect-[21/9]">
+            <MitangPhoto
+              sizes="(min-width: 1024px) calc(100vw - 96px), 100vw"
+              className="rp-photo object-[50%_64%]"
+            />
+          </div>
+          <figcaption className="type-index mt-3 flex flex-wrap justify-between gap-x-6 gap-y-1 text-[var(--muted)]">
+            <span>Operação de survey · convés de embarcação</span>
+            <span>{MITANG_PHOTO.credit}</span>
+          </figcaption>
+        </figure>
 
         {/* MITANG context — only to show we understand the market (§4). */}
         <div data-rp="context" className="col-span-full lg:col-span-5">

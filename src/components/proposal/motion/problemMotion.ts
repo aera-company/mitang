@@ -61,4 +61,16 @@ export function playRealProblem(root: HTMLElement, active: Record<string, boolea
     );
 
   revealOnEnter(q('[data-rp="context"]'));
+
+  // Option B: the photograph opens from the left rule, once.
+  const photo = q('[data-rp="photo"]')[0];
+  if (photo) {
+    const img = photo.querySelector("img");
+    gsap.set(photo.firstElementChild, { clipPath: "inset(0% 100% 0% 0%)" });
+    if (img) gsap.set(img, { scale: 1.06 });
+    gsap
+      .timeline({ defaults: { ease: "power3.inOut" }, scrollTrigger: { trigger: photo, start: "top 80%", once: true } })
+      .to(photo.firstElementChild, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.4 }, 0)
+      .to(img, { scale: 1, duration: 2, ease: "power2.out" }, 0);
+  }
 }

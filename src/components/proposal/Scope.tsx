@@ -4,11 +4,19 @@ import { useRef } from "react";
 import { ACTS, OUT_OF_SCOPE, SCOPE } from "@/lib/constants";
 import { playRows } from "./motion/operationMotion";
 import { useScene } from "./motion/useScene";
+import { useVariant } from "./variant";
 import { Section } from "./ui/Section";
+
+/* The intro reading carries no investment or hiring vocabulary (26/09). */
+const INTRO_WORDING: Record<string, string> = {
+  "Investimento em mídia": "Mídia paga",
+  "Contratação de bases externas": "Bases de dados externas",
+};
 
 export function Scope() {
   const scope = useRef<HTMLElement>(null);
   useScene(scope, playRows);
+  const variant = useVariant();
 
   return (
     <Section ref={scope} id="escopo" index="13" label="Escopo" act={ACTS.offer}>
@@ -55,14 +63,17 @@ export function Scope() {
                 data-row
                 className="border-t border-[var(--line)] py-3 text-[15px] text-[var(--muted)]"
               >
-                {o}
+                {variant === "intro" ? (INTRO_WORDING[o] ?? o) : o}
               </li>
             ))}
           </ul>
-          <p data-reveal className="type-body mt-8">
-            Quando necessários, esses itens são orçados separadamente ou
-            aprovados antes da execução.
-          </p>
+          {/* Budget wording belongs to the commercial variant only. */}
+          {variant === "commercial" && (
+            <p data-reveal className="type-body mt-8">
+              Quando necessários, esses itens são orçados separadamente ou
+              aprovados antes da execução.
+            </p>
+          )}
         </div>
       </div>
     </Section>

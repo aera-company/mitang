@@ -5,6 +5,7 @@ import { AeraField, gridX } from "@/components/aera-field";
 import { useGsapContext } from "@/components/motion/useGsapContext";
 import { playHeroEntrance } from "./motion/heroMotion";
 import { Pairing } from "./ui/Marks";
+import { useVariant } from "./variant";
 import { Radar, polar } from "./ui/Radar";
 
 type Props = {
@@ -116,6 +117,7 @@ function HeroPlot({ size, labels, name }: { size: number; labels: boolean; name:
 
 export function Hero({ variant = "pt" }: Props) {
   const lines = TITLE[variant];
+  const kind = useVariant();
   const scope = useRef<HTMLElement>(null);
 
   useGsapContext(
@@ -194,7 +196,7 @@ export function Hero({ variant = "pt" }: Props) {
           data-hero="fade"
           className="type-index col-span-2 text-right text-[var(--muted)] lg:col-span-6"
         >
-          Proposta · 09.2026
+          {kind === "intro" ? "Apresentação" : "Proposta"} · 09.2026
         </p>
       </div>
 

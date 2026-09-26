@@ -1,4 +1,8 @@
+"use client";
+
 import type { ReactNode, Ref } from "react";
+import { ACTS } from "@/lib/constants";
+import { useVariant } from "../variant";
 
 type Props = {
   id: string;
@@ -27,6 +31,10 @@ export function Section({
   children,
   ref,
 }: Props) {
+  // In the intro variant act IV holds scope and metrics only, no offer.
+  const variant = useVariant();
+  const actLabel = variant === "intro" && act === ACTS.offer ? "IV · Escopo" : act;
+
   return (
     <section
       ref={ref}
@@ -40,7 +48,7 @@ export function Section({
             <span className="type-index">{index}</span>
             <span className="type-micro">{label}</span>
           </p>
-          <p className="type-index hidden md:block">{act}</p>
+          <p className="type-index hidden md:block">{actLabel}</p>
         </div>
       </div>
       {children}

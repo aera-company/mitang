@@ -1,51 +1,10 @@
-import { ABM } from "@/components/proposal/ABM";
-import { Automation } from "@/components/proposal/Automation";
-import { Closing } from "@/components/proposal/Closing";
-import { GrowthSystem } from "@/components/proposal/GrowthSystem";
-import { Hero } from "@/components/proposal/Hero";
-import { Investment } from "@/components/proposal/Investment";
-import { JobReframe } from "@/components/proposal/JobReframe";
-import { MarketIntelligence } from "@/components/proposal/MarketIntelligence";
-import { Metrics } from "@/components/proposal/Metrics";
-import { NinetyDays } from "@/components/proposal/NinetyDays";
-import { OpportunityPipeline } from "@/components/proposal/OpportunityPipeline";
-import { RealProblem } from "@/components/proposal/RealProblem";
-import { SalesContent } from "@/components/proposal/SalesContent";
-import { Scope } from "@/components/proposal/Scope";
-import { TeamModel } from "@/components/proposal/TeamModel";
-import { WorkingModel } from "@/components/proposal/WorkingModel";
+import { Proposal } from "@/components/proposal/Proposal";
 
 type Props = { searchParams: Promise<{ h?: string }> };
 
-/* Five acts, sixteen chapters (brief §9 + working model, 24/09).
-   `?h=en` previews the English hero headline for the visual test in §10 —
-   Portuguese is the default. */
-export default async function Proposal({ searchParams }: Props) {
+/* Root keeps serving the commercial proposal exactly as published before
+   the two routes existed (links already shared keep working). */
+export default async function Home({ searchParams }: Props) {
   const { h } = await searchParams;
-
-  return (
-    <main id="main">
-      <Hero variant={h === "en" ? "en" : "pt"} />
-      {/* I — Tese */}
-      <JobReframe />
-      <RealProblem />
-      {/* II — Sistema */}
-      <GrowthSystem />
-      <OpportunityPipeline />
-      <MarketIntelligence />
-      <ABM />
-      {/* III — Operação */}
-      <SalesContent />
-      <Automation />
-      <NinetyDays />
-      <TeamModel />
-      <WorkingModel />
-      {/* IV — Proposta */}
-      <Scope />
-      <Metrics />
-      <Investment />
-      {/* V — Próximo passo */}
-      <Closing />
-    </main>
-  );
+  return <Proposal variant="commercial" headline={h === "en" ? "en" : "pt"} />;
 }
