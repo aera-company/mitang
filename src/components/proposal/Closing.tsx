@@ -37,11 +37,8 @@ const COPY: Record<
     title: ["Começar pela", "conversa."],
     lead: "Uma reunião para entender as prioridades comerciais da MITANG, aprofundar o contexto atual e definir quais frentes devem entrar primeiro na operação.",
     readout: "Conversa com o time da MITANG",
-    ctas: [
-      { label: "Agendar uma conversa", href: mail("AERA × MITANG · Agendar uma conversa") },
-      { label: "Conversar sobre a operação", href: mail("AERA × MITANG · Operação") },
-    ],
-    note: "O desenho comercial da operação é apresentado a partir desse primeiro alinhamento.",
+    ctas: [{ label: "Agendar uma conversa", href: mail("AERA × MITANG · Agendar uma conversa") }],
+    note: "A partir desse alinhamento, definimos juntos o desenho inicial da operação.",
   },
 };
 

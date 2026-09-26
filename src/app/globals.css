@@ -386,7 +386,14 @@ button,
    MITANG PHOTOGRAPH (single image, 26/09)
    ============================================================ */
 
-/* B · on paper: printed monochrome — lifted blacks, controlled contrast. */
+/* On paper: the photograph starts printed monochrome and gains colour as
+   the section is read (--rp-gray 1 → 0, scrubbed). Colour stays held back
+   so the page keeps its tone. Without motion it rests in colour. */
 .rp-photo {
-  filter: contrast(0.94) brightness(1.04);
+  --rp-gray: 0;
+  filter: grayscale(var(--rp-gray)) saturate(0.82) contrast(0.96) brightness(1.02);
+}
+
+.motion .rp-photo {
+  --rp-gray: 1;
 }

@@ -62,15 +62,19 @@ export function playRealProblem(root: HTMLElement, active: Record<string, boolea
 
   revealOnEnter(q('[data-rp="context"]'));
 
-  // Option B: the photograph opens from the left rule, once.
+  // The photograph, scrubbed to the reading: it opens from the left rule,
+  // the frame drifts and settles, and colour arrives once it has settled.
   const photo = q('[data-rp="photo"]')[0];
   if (photo) {
+    const frame = photo.firstElementChild as HTMLElement;
     const img = photo.querySelector("img");
-    gsap.set(photo.firstElementChild, { clipPath: "inset(0% 100% 0% 0%)" });
-    if (img) gsap.set(img, { scale: 1.06 });
     gsap
-      .timeline({ defaults: { ease: "power3.inOut" }, scrollTrigger: { trigger: photo, start: "top 80%", once: true } })
-      .to(photo.firstElementChild, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.4 }, 0)
-      .to(img, { scale: 1, duration: 2, ease: "power2.out" }, 0);
+      .timeline({
+        defaults: { ease: "none" },
+        scrollTrigger: { trigger: photo, start: "top 88%", end: "bottom 60%", scrub: 0.6 },
+      })
+      .fromTo(frame, { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power2.inOut" }, 0)
+      .fromTo(img, { scale: 1.14, yPercent: -4 }, { scale: 1, yPercent: 4, duration: 1 }, 0)
+      .fromTo(img, { "--rp-gray": 1 }, { "--rp-gray": 0, duration: 0.4, ease: "power1.inOut" }, 0.45);
   }
 }

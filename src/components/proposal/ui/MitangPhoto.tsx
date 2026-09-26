@@ -2,12 +2,13 @@ import Image from "next/image";
 
 /**
  * The single MITANG photograph (26/09). Source: official public site,
- * mitang.com.br/survey-positioning — vessel deck during survey operation.
- * Baked to monochrome in `public/media/mitang-survey-deck.jpg` (2420×1815);
+ * mitang.com.br/survey-positioning, vessel deck during survey operation.
+ * Original colour in `public/media/mitang-survey-deck-cor.jpg` (2420×1815);
+ * the monochrome → colour shift is a scrubbed CSS filter (`.rp-photo`).
  * next/image serves AVIF/WebP at the rendered size.
  */
 export const MITANG_PHOTO = {
-  src: "/media/mitang-survey-deck.jpg",
+  src: "/media/mitang-survey-deck-cor.jpg",
   alt: "Convés de embarcação durante operação de survey da MITANG",
   credit: "Imagem: MITANG · mitang.com.br",
 };

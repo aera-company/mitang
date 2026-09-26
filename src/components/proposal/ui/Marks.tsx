@@ -1,11 +1,16 @@
-/** AERA mark (approved asset, masked so it takes the current colour). */
+/** AERA mark (approved asset, masked so it takes the current colour).
+    Links to the AERA site in a new tab, so the proposal stays open. */
 export function AeraMark({ className = "" }: { className?: string }) {
   return (
-    <span
-      role="img"
-      aria-label="AERA"
-      className={`aera-mark inline-block aspect-[6/1] ${className}`}
-    />
+    <a
+      href="https://aera.company"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="AERA · abre aera.company em nova aba"
+      className="inline-flex transition-opacity duration-300 hover:opacity-70"
+    >
+      <span aria-hidden className={`aera-mark inline-block aspect-[6/1] ${className}`} />
+    </a>
   );
 }
 
