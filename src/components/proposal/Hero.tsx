@@ -208,7 +208,7 @@ export function Hero({ variant = "pt" }: Props) {
           {COORD}
         </span>
         <br />
-        Sinal 01 — localizado
+        Sinal 01 · localizado
       </p>
 
       <div className="aera-grid relative mt-auto pb-12 lg:pb-16">
@@ -217,7 +217,7 @@ export function Hero({ variant = "pt" }: Props) {
             {COORD}
           </span>
           <br />
-          Sinal 01 — localizado
+          Sinal 01 · localizado
         </p>
 
         <h1 id="inicio-title" className="type-display col-span-full lg:col-span-9">

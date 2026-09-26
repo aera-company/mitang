@@ -177,10 +177,10 @@ export function JobReframe() {
             Uma operação contínua de geração de oportunidades.
           </p>
           <p className="type-body mt-6 text-[var(--muted)]">
-            Não apenas uma pessoa executando tarefas. Uma estrutura conectando
-            mercado, comunicação, dados e comercial — porque identificar
-            oportunidades, gerar conexão, produzir comunicação, organizar dados
-            e acompanhar leads exige mais do que uma única disciplina.
+            Uma estrutura conectando mercado, comunicação, dados e comercial,
+            porque identificar oportunidades, gerar conexão, produzir
+            comunicação, organizar dados e acompanhar leads exige mais do que
+            uma única disciplina.
           </p>
         </div>
       </div>

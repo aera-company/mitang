@@ -92,8 +92,9 @@ export function WorkingModel() {
             ))}
           </ul>
           <p data-reveal className="type-index mt-4 text-[var(--muted)]">
-            Nos primeiros 90 dias, a presença tende a ser maior durante a fase de
-            imersão e estruturação da operação.
+            Nos primeiros 90 dias, os encontros presenciais se concentram
+            especialmente nos momentos de imersão, estruturação e revisão da
+            operação.
           </p>
         </div>
 

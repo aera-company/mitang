@@ -18,7 +18,7 @@ const mono = Geist_Mono({
 
 // Private proposal: never indexed.
 export const metadata: Metadata = {
-  title: "AERA × MITANG — Proposta",
+  title: "AERA × MITANG · Proposta",
   description:
     "Growth, inteligência comercial e tecnologia para o comercial da MITANG.",
   robots: { index: false, follow: false },

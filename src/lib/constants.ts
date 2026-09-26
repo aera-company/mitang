@@ -17,11 +17,11 @@ export const PRICING = {
 
 /** The five acts that group the sixteen sections. */
 export const ACTS = {
-  thesis: "I — Tese",
-  system: "II — Sistema",
-  operation: "III — Operação",
-  offer: "IV — Proposta",
-  closing: "V — Próximo passo",
+  thesis: "I · Tese",
+  system: "II · Sistema",
+  operation: "III · Operação",
+  offer: "IV · Proposta",
+  closing: "V · Próximo passo",
 } as const;
 
 export const JOB_WORDS = [
