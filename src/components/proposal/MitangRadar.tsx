@@ -22,8 +22,7 @@ export function MitangRadar() {
       <div className="aera-grid section-pad gap-y-14">
         {/* Name and promise */}
         <div className="col-span-full lg:col-span-8">
-          <p data-reveal className="type-micro text-[var(--muted)]">Nome de trabalho</p>
-          <h2 id="radar-title" className="mt-5">
+          <h2 id="radar-title">
             <span className="line-mask">
               <span data-rd="title" className="type-display">
                 MITANG Radar<span className="text-[var(--signal)]">.</span>
@@ -40,10 +39,18 @@ export function MitangRadar() {
             oportunidades, histórico e próximos passos em um único lugar.
           </p>
           <p className="type-body mt-6 text-[var(--muted)]">
-            Não é um software pronto. É uma camada operacional construída ao
-            longo do piloto: começa na V01 e evolui com a operação.
+            Uma camada operacional que começa simples na V01 e evolui ao longo
+            do piloto, reunindo inteligência de mercado, pipeline e próximos
+            passos em um único ambiente.
           </p>
         </div>
+
+        {/* Editorial lead-in to the mockup (27/09), not a new section. */}
+        <p data-reveal className="col-span-full mt-6 border-t border-[var(--line-strong)] pt-8 text-[clamp(22px,2.2vw,34px)] font-medium leading-[1.2] tracking-[-0.018em] lg:col-span-9 lg:mt-10">
+          O que normalmente fica espalhado entre planilhas, LinkedIn, e-mails e
+          memória passa a trabalhar como uma única inteligência comercial
+          <span className="text-[var(--signal)]">.</span>
+        </p>
 
         {/* The V01 interface */}
         <figure className="col-span-full">

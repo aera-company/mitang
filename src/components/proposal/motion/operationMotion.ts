@@ -22,11 +22,11 @@ export function playSalesContent(root: HTMLElement, active: Active) {
     .to(q('[data-sc="stage"]'), { scaleX: 1, duration: 0.5, ease: "power2.out", stagger: 0.07 }, 0.45);
 }
 
-/** IA + automation: a quiet list. */
+/** IA + automation: headline and one line, quietly. */
 export function playAutomation(root: HTMLElement, active: Active) {
   if (active.reduce) return;
   const q = gsap.utils.selector(root);
-  revealOnEnter([...q("[data-reveal]"), ...q('[data-au="use"]')]);
+  revealOnEnter(q("[data-reveal]"));
 }
 
 /**

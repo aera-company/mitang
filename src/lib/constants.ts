@@ -122,15 +122,6 @@ export const SALES_ASSETS = [
   { name: "Material para reunião", question: "Ajuda a fechar" },
 ];
 
-export const AUTOMATION_USES = [
-  "Pesquisa e enriquecimento de contas",
-  "Classificação de leads",
-  "Preparação de reuniões",
-  "Alertas e lembretes de follow-up",
-  "Organização do CRM",
-  "Materiais e dashboards com apoio de IA",
-];
-
 export type Phase = {
   range: string;
   verb: string;

@@ -116,10 +116,10 @@ export function Beyond() {
 
         <p data-reveal className="col-span-full border-t border-[var(--fg)] pt-10 lg:col-start-6 lg:col-span-7">
           <span className="block text-[clamp(22px,2vw,30px)] font-medium leading-[1.2] tracking-[-0.015em] text-[var(--muted)]">
-            Não é apenas executar uma função.
+            A operação não termina na execução.
           </span>
           <span className="mt-2 block text-[clamp(28px,3vw,46px)] font-semibold leading-[1.05] tracking-[-0.025em]">
-            É construir capacidade comercial dentro da MITANG
+            Ela constrói capacidade comercial dentro da MITANG
             <span className="text-[var(--signal)]">.</span>
           </span>
         </p>
