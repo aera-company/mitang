@@ -35,13 +35,9 @@ export function MitangRadar() {
         </div>
         <div data-reveal className="col-span-full self-end lg:col-start-8 lg:col-span-5">
           <p className="type-lead">
-            Um ambiente simples para reunir mercado, contas, decisores, sinais,
-            oportunidades, histórico e próximos passos em um único lugar.
-          </p>
-          <p className="type-body mt-6 text-[var(--muted)]">
-            Uma camada operacional que começa simples na V01 e evolui ao longo
-            do piloto, reunindo inteligência de mercado, pipeline e próximos
-            passos em um único ambiente.
+            Um ambiente simples que começa na V01 e evolui com a operação,
+            reunindo mercado, contas, decisores, sinais, histórico, pipeline e
+            próximos passos em um único lugar.
           </p>
         </div>
 

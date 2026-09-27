@@ -64,7 +64,7 @@ export function Beyond() {
       <div className="aera-grid section-pad gap-y-14">
         <h2 data-reveal id="alem-title" className="type-h2 col-span-full lg:col-span-10">
           A operação gera oportunidades.{" "}
-          <span className="block text-[var(--muted)]">A estrutura continua ficando.</span>
+          <span className="block text-[var(--muted)]">A estrutura fica.</span>
         </h2>
         <p data-reveal className="type-lead col-span-full lg:col-start-7 lg:col-span-6">
           Enquanto a rotina comercial acontece, a AERA também constrói uma camada
