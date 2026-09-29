@@ -21,7 +21,7 @@ export function Assumes() {
         <p data-reveal className="type-lead col-span-full self-end lg:col-start-8 lg:col-span-5">
           Em uma prestação de serviços recorrente, a AERA passa a operar
           Marketing & Lead Generation junto ao Comercial da MITANG, da
-          identificação da oportunidade à geração da reunião.
+          identificação de oportunidades à geração de reuniões qualificadas.
         </p>
 
         <ol className="col-span-full grid grid-cols-1 gap-x-[var(--gutter)] gap-y-12 md:grid-cols-2 lg:grid-cols-4">

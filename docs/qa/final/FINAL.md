@@ -40,3 +40,19 @@ rotina (vai para a 05), "quando pede uma peça" (vira "ela pede uma resposta"),
 - Reduced motion 1440 e 390: página inteira visível.
 - Radar (Chrome 390; WebKit 1440 e iPhone 15): tabs, conta, avançar etapa ok.
 - Sem preço: HTML, metadata e os 9 scripts de /mitang.
+- WebKit no site publicado (Safari 1440 + iPhone 15): 0 erros, sem overflow,
+  nenhum preço, 6 seções + hero, Radar ok (`scripts/qa/webkit-final.mjs`).
+
+Publicado no commit e0115e9. /mitang = FINAL / LOCKED.
+
+## Ajustes finais (01/10)
+- 03: "da identificação de oportunidades à geração de reuniões qualificadas."
+- 05: saiu a lista de formatos; fechamento "Transformamos expertise técnica em
+  estratégia, comunicação e ativos que ajudam a abrir e avançar conversas
+  comerciais."
+- Espaçamento conferido em 1440 e 390: "O objetivo já está claro." / "Gerar
+  oportunidades…" e "MITANG Radar." / "A camada…" renderizam em linhas
+  separadas; "A IA organiza…" / "A decisão comercial…" tem espaço entre as
+  partes. Nada colado na tela, nada alterado.
+- QA: build ok; Chrome 1440, 768, 390 com 0 erros, sem overflow, CLS 0, sem
+  preço (HTML e 9 scripts); /mitang/proposta intacta.

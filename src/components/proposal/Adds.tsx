@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { ACTS_V2, COMPETENCIES, EXPERTISE_TO, RESPONSES } from "@/lib/v2";
+import { ACTS_V2, COMPETENCIES, RESPONSES } from "@/lib/v2";
 import { playAdds } from "./motion/v2Motion";
 import { useScene } from "./motion/useScene";
 import { Section } from "./ui/Section";
@@ -71,19 +71,10 @@ export function Adds() {
         </p>
 
         {/* Expertise → communication that sells. */}
-        <div data-reveal className="col-span-full mt-8 border-t border-[var(--line-strong)] pt-8 lg:col-span-6">
-          <p className="text-[clamp(22px,2vw,30px)] font-medium leading-[1.25] tracking-[-0.015em]">
-            Transformar expertise técnica em comunicação que ajuda a abrir e
-            avançar conversas comerciais.
-          </p>
-        </div>
-        <ul data-reveal aria-label="Formas de comunicação" className="col-span-full flex flex-wrap gap-2 self-end lg:col-start-8 lg:col-span-5 lg:mt-8">
-          {EXPERTISE_TO.map((e) => (
-            <li key={e} className="border border-[var(--line-strong)] px-2.5 py-1 text-[14px]">
-              {e}
-            </li>
-          ))}
-        </ul>
+        <p data-reveal className="col-span-full mt-8 border-t border-[var(--line-strong)] pt-8 text-[clamp(22px,2vw,30px)] font-medium leading-[1.25] tracking-[-0.015em] lg:col-span-8">
+          Transformamos expertise técnica em estratégia, comunicação e ativos
+          que ajudam a abrir e avançar conversas comerciais.
+        </p>
       </div>
     </Section>
   );

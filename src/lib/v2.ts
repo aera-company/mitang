@@ -129,18 +129,6 @@ export const RESPONSES = [
 
 export const COMPETENCIES = ["Estratégia", "Growth", "Criação", "Tecnologia", "Gestão"];
 
-/** Technical expertise turned into communication that sells. */
-export const EXPERTISE_TO = [
-  "posicionamento",
-  "histórias",
-  "cases",
-  "conteúdos",
-  "campanhas",
-  "materiais comerciais",
-  "apresentações",
-  "experiências digitais",
-];
-
 /** The first 90 days, concrete. No volume targets before the diagnosis. */
 export const PHASES_V2 = [
   {
