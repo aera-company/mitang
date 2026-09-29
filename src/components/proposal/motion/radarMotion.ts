@@ -55,7 +55,7 @@ export function playMitangRadar(root: HTMLElement, active: Active) {
 
   // Piece sequence, drawn down its rail.
   const steps = q('[data-rd="steps"]')[0];
-  gsap
+  if (steps) gsap
     .timeline({
       defaults: { ease: "none" },
       scrollTrigger: { trigger: steps, start: "top 78%", end: "bottom 58%", scrub: 0.4 },
@@ -64,7 +64,7 @@ export function playMitangRadar(root: HTMLElement, active: Active) {
     .fromTo(q('[data-rd="step"]'), { opacity: 0.15, x: -8 }, { opacity: 1, x: 0, duration: 0.18, stagger: 0.2 }, 0);
 
   // The five disciplines join, one by one.
-  gsap.fromTo(
+  if (q('[data-rd="disc"]').length) gsap.fromTo(
     q('[data-rd="disc"]'),
     { opacity: 0.2 },
     {
@@ -75,4 +75,15 @@ export function playMitangRadar(root: HTMLElement, active: Active) {
       scrollTrigger: { trigger: q('[data-rd="disc"]')[0], start: "top 82%", once: true },
     },
   );
+
+  // V2: the piece sequence inside the Radar section.
+  const pieces = q('[data-hw="piece"]');
+  if (pieces.length) {
+    gsap.set(pieces, { opacity: 0, x: -8 });
+    gsap.set(q('[data-hw="sketch"]'), { opacity: 0, y: 12 });
+    gsap
+      .timeline({ defaults: { ease: "expo.out" }, scrollTrigger: { trigger: pieces[0], start: "top 82%", once: true } })
+      .to(pieces, { opacity: 1, x: 0, duration: 0.7, stagger: 0.14 }, 0)
+      .to(q('[data-hw="sketch"]'), { opacity: 1, y: 0, duration: 0.9 }, 0.45);
+  }
 }

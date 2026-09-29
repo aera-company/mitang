@@ -47,7 +47,7 @@ export function playRealProblem(root: HTMLElement, active: Record<string, boolea
 
   // The chain, drawn to the opportunity.
   const chain = q('[data-rp="chain"]')[0];
-  gsap
+  if (chain) gsap
     .timeline({
       defaults: { ease: "none" },
       scrollTrigger: { trigger: chain, start: "top 75%", end: "bottom 55%", scrub: 0.4 },

@@ -14,8 +14,8 @@ const mail = (subject: string) =>
 
 /* Commercial closes on the market; the intro closes on a conversation,
    with no commercial or hiring language (26/09). */
-const COPY: Record<
-  Variant,
+const BASE: Record<
+  Exclude<Variant, "v2">,
   {
     index: string;
     title: string[];
@@ -41,6 +41,8 @@ const COPY: Record<
     note: "A partir desse alinhamento, definimos juntos o desenho inicial da operação.",
   },
 };
+// V2 closes exactly like the intro, as section 08.
+const COPY: Record<Variant, (typeof BASE)["intro"]> = { ...BASE, v2: { ...BASE.intro, index: "08" } };
 
 export function Closing() {
   const scope = useRef<HTMLElement>(null);

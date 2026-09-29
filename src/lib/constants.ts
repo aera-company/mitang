@@ -8,13 +8,6 @@ export const CONTACT = {
   email: "sales@aera.company",
 };
 
-/** Commercial model — revised by Tiago 24/09: one monthly price, setup
-    included, 3-month cycle. No discount / promo language anywhere. */
-export const PRICING = {
-  monthly: "R$ 9.800",
-  cycleTotal: "R$ 29.400",
-};
-
 /** The five acts that group the eighteen sections. */
 export const ACTS = {
   thesis: "I · Tese",
@@ -304,18 +297,6 @@ export const SCOPE = [
       "interface próxima com o comercial",
     ],
   },
-];
-
-export const OUT_OF_SCOPE = [
-  "Investimento em mídia",
-  "Contratação de bases externas",
-  "Licenças de softwares de terceiros",
-  "Produção audiovisual complexa",
-  "Viagens fora do Rio",
-  "Impressão",
-  "Eventos",
-  "Desenvolvimento de sistemas de grande porte",
-  "Serviços técnicos de pré-venda offshore",
 ];
 
 export const METRICS = [

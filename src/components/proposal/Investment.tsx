@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import { ACTS, PRICING } from "@/lib/constants";
+import { ACTS } from "@/lib/constants";
+import { PRICING } from "@/lib/pricing";
 import { playInvestment } from "./motion/commercialMotion";
 import { useScene } from "./motion/useScene";
 import { Section } from "./ui/Section";

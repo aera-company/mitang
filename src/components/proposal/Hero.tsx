@@ -196,7 +196,7 @@ export function Hero({ variant = "pt" }: Props) {
           data-hero="fade"
           className="type-index col-span-2 text-right text-[var(--muted)] lg:col-span-6"
         >
-          {kind === "intro" ? "Apresentação" : "Proposta"} · 09.2026
+          {kind === "commercial" ? "Proposta" : "Apresentação"} · 09.2026
         </p>
       </div>
 
@@ -234,8 +234,9 @@ export function Hero({ variant = "pt" }: Props) {
           data-hero="fade"
           className="type-lead col-span-full mt-10 text-[var(--muted)] lg:col-span-5"
         >
-          Uma proposta para transformar inteligência de mercado, comunicação e
-          tecnologia em novas oportunidades para o comercial da MITANG.
+          {kind === "v2"
+            ? "Uma operação externa de marketing, growth e inteligência comercial conectada ao time da MITANG."
+            : "Uma proposta para transformar inteligência de mercado, comunicação e tecnologia em novas oportunidades para o comercial da MITANG."}
         </p>
 
         <a

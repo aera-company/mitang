@@ -9,7 +9,7 @@ import { createContext, useContext, type ReactNode } from "react";
  *  - "commercial": the full proposal with the pilot's investment.
  * Every section is shared; only the commercial blocks read the variant.
  */
-export type Variant = "intro" | "commercial";
+export type Variant = "intro" | "commercial" | "v2";
 
 const VariantContext = createContext<Variant>("commercial");
 

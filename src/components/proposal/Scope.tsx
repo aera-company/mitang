@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import { ACTS, OUT_OF_SCOPE, SCOPE } from "@/lib/constants";
+import { ACTS, SCOPE } from "@/lib/constants";
+import { OUT_OF_SCOPE } from "@/lib/scope";
 import { playRows } from "./motion/operationMotion";
 import { useScene } from "./motion/useScene";
 import { useVariant } from "./variant";

@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { Proposal } from "@/components/proposal/Proposal";
+import { ProposalV2 } from "@/components/proposal/ProposalV2";
 
 export const metadata: Metadata = {
   title: "AERA × MITANG · Apresentação",
-  description: "Growth, inteligência comercial e tecnologia para o comercial da MITANG.",
+  description: "Marketing, geração de oportunidades e inteligência comercial conectados ao time da MITANG.",
 };
 
-type Props = { searchParams: Promise<{ h?: string }> };
-
-/* Versão 01 · apresentação / conversa. No investment anywhere. */
-export default async function MitangIntro({ searchParams }: Props) {
-  const { h } = await searchParams;
-  return <Proposal variant="intro" headline={h === "en" ? "en" : "pt"} />;
+/* V2 (30/09): apresentação curta, sem preço. A V1 longa fica na tag v1.1. */
+export default function MitangIntro() {
+  return <ProposalV2 />;
 }
