@@ -41,8 +41,16 @@ const BASE: Record<
     note: "A partir desse alinhamento, definimos juntos o desenho inicial da operação.",
   },
 };
-// V2 closes exactly like the intro, as section 08.
-const COPY: Record<Variant, (typeof BASE)["intro"]> = { ...BASE, v2: { ...BASE.intro, index: "08" } };
+// /mitang (final, 01/10): one conversation about which fronts to activate.
+const COPY: Record<Variant, (typeof BASE)["intro"]> = {
+  ...BASE,
+  v2: {
+    ...BASE.intro,
+    index: "07",
+    lead: "Uma reunião para definir quais frentes comerciais fazem mais sentido ativar primeiro e como a AERA pode operar essa estrutura junto ao time da MITANG.",
+    note: undefined,
+  },
+};
 
 export function Closing() {
   const scope = useRef<HTMLElement>(null);

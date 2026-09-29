@@ -5,9 +5,7 @@ import { useGsapContext } from "@/components/motion/useGsapContext";
 import { ACTS, PROBLEM_CHAIN } from "@/lib/constants";
 import { playRealProblem } from "./motion/problemMotion";
 import { MITANG_PHOTO, MitangPhoto } from "./ui/MitangPhoto";
-import { ACTS_V2 } from "@/lib/v2";
 import { Section } from "./ui/Section";
-import { useVariant } from "./variant";
 
 /** Word spans for the scrubbed colour shift (text stays one sentence). */
 function Words({ text, name }: { text: string; name: string }) {
@@ -35,16 +33,13 @@ export function RealProblem() {
     (active) => playRealProblem(scope.current!, active),
   );
 
-  // V2 (29/09): the chain becomes the flow in section 06.
-  const v2 = useVariant() === "v2";
-
   return (
     <Section
       ref={scope}
       id="problema"
-      index={v2 ? "02" : "03"}
+      index="03"
       label="O problema real"
-      act={v2 ? ACTS_V2.challenge : ACTS.thesis}
+      act={ACTS.thesis}
       state="light"
     >
       <div className="aera-grid section-pad gap-y-16">
@@ -91,50 +86,46 @@ export function RealProblem() {
           </ul>
         </div>
 
-        {!v2 && (
-          <>
-            {/* The chain: each step enters as it is reached. */}
-          <div className="col-span-full lg:col-start-7 lg:col-span-6">
-            <ol data-rp="chain" aria-label="Do mercado à oportunidade" className="relative">
-              <span
-                aria-hidden
-                data-rp="rail"
-                className="absolute bottom-3 left-[5px] top-3 w-px origin-top bg-[var(--line-strong)]"
-              />
-              {PROBLEM_CHAIN.map((step, i) => {
-                const last = i === PROBLEM_CHAIN.length - 1;
-                return (
-                  <li key={step} data-rp="step" className="relative flex items-baseline gap-6 py-3 pl-8">
-                    <span
-                      aria-hidden
-                      className={`absolute left-0 top-1/2 size-[11px] -translate-y-1/2 rounded-full border ${
-                        last
-                          ? "border-[var(--signal)] bg-[var(--signal)] shadow-[0_0_0_4px_var(--signal-soft)]"
-                          : "border-[var(--fg)] bg-[var(--bg)]"
-                      }`}
-                    />
-                    <span className="type-index w-6 text-[var(--muted)]">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span
-                      className={`text-[clamp(22px,2vw,30px)] font-medium tracking-tight ${
-                        last ? "text-[var(--signal)]" : ""
-                      }`}
-                    >
-                      {step}
-                    </span>
-                  </li>
-                );
-              })}
-            </ol>
-            <p className="type-body mt-10 text-[var(--muted)]">
-              Em mercados B2B técnicos, o volume sozinho não cria negócio. A
-              oportunidade nasce da combinação entre relevância, timing e contexto
-              comercial.
-            </p>
-          </div>
-          </>
-        )}
+        {/* The chain: each step enters as it is reached. */}
+        <div className="col-span-full lg:col-start-7 lg:col-span-6">
+          <ol data-rp="chain" aria-label="Do mercado à oportunidade" className="relative">
+            <span
+              aria-hidden
+              data-rp="rail"
+              className="absolute bottom-3 left-[5px] top-3 w-px origin-top bg-[var(--line-strong)]"
+            />
+            {PROBLEM_CHAIN.map((step, i) => {
+              const last = i === PROBLEM_CHAIN.length - 1;
+              return (
+                <li key={step} data-rp="step" className="relative flex items-baseline gap-6 py-3 pl-8">
+                  <span
+                    aria-hidden
+                    className={`absolute left-0 top-1/2 size-[11px] -translate-y-1/2 rounded-full border ${
+                      last
+                        ? "border-[var(--signal)] bg-[var(--signal)] shadow-[0_0_0_4px_var(--signal-soft)]"
+                        : "border-[var(--fg)] bg-[var(--bg)]"
+                    }`}
+                  />
+                  <span className="type-index w-6 text-[var(--muted)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span
+                    className={`text-[clamp(22px,2vw,30px)] font-medium tracking-tight ${
+                      last ? "text-[var(--signal)]" : ""
+                    }`}
+                  >
+                    {step}
+                  </span>
+                </li>
+              );
+            })}
+          </ol>
+          <p className="type-body mt-10 text-[var(--muted)]">
+            Em mercados B2B técnicos, o volume sozinho não cria negócio. A
+            oportunidade nasce da combinação entre relevância, timing e contexto
+            comercial.
+          </p>
+        </div>
       </div>
     </Section>
   );

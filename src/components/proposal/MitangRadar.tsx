@@ -6,11 +6,8 @@ import { BEFORE_CHAIN, PIECE_STEPS, WITH_CHAIN } from "@/lib/radar";
 import { playMitangRadar } from "./motion/radarMotion";
 import { useScene } from "./motion/useScene";
 import { AssetSketch } from "./ui/AssetSketch";
-import { PieceBlock } from "./ui/PieceBlock";
 import { RadarApp } from "./ui/RadarApp";
-import { ACTS_V2 } from "@/lib/v2";
 import { Section } from "./ui/Section";
-import { useVariant } from "./variant";
 
 const DISCIPLINES = ["inteligência", "comunicação", "design", "tecnologia", "comercial"];
 
@@ -20,11 +17,8 @@ export function MitangRadar() {
   const scope = useRef<HTMLElement>(null);
   useScene(scope, playMitangRadar);
 
-  // V2: a compact piece block replaces the long intelligence + creation part.
-  const v2 = useVariant() === "v2";
-
   return (
-    <Section ref={scope} id="radar" index={v2 ? "05" : "11"} label="MITANG Radar" act={v2 ? ACTS_V2.radar : ACTS.operation}>
+    <Section ref={scope} id="radar" index="11" label="MITANG Radar" act={ACTS.operation}>
       <div className="aera-grid section-pad gap-y-14">
         {/* Name and promise */}
         <div className="col-span-full lg:col-span-8">
@@ -107,10 +101,6 @@ export function MitangRadar() {
           comercial da operação.
         </p>
 
-        {v2 && <PieceBlock />}
-
-        {!v2 && (
-          <>
         {/* Intelligence + creation */}
         <div data-reveal className="col-span-full mt-10 border-t border-[var(--line-strong)] pt-10 lg:col-span-5 lg:mt-16">
           <p className="type-micro text-[var(--muted)]">Inteligência + criação</p>
@@ -181,8 +171,6 @@ export function MitangRadar() {
             oportunidades.
           </p>
         </div>
-          </>
-        )}
       </div>
     </Section>
   );

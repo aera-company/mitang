@@ -235,13 +235,13 @@ export function Hero({ variant = "pt" }: Props) {
           className="type-lead col-span-full mt-10 text-[var(--muted)] lg:col-span-5"
         >
           {kind === "v2"
-            ? "Uma operação externa de marketing, growth e inteligência comercial conectada ao time da MITANG."
+            ? "A AERA assume a frente de Marketing & Lead Generation como uma operação externa conectada ao Comercial da MITANG."
             : "Uma proposta para transformar inteligência de mercado, comunicação e tecnologia em novas oportunidades para o comercial da MITANG."}
         </p>
 
         <a
           data-hero="fade"
-          href="#vaga"
+          href={kind === "v2" ? "#ponto-de-partida" : "#vaga"}
           className="type-micro col-span-full mt-10 inline-flex items-center gap-3 self-end text-[var(--muted)] transition-colors hover:text-[var(--fg)] lg:col-start-9 lg:col-span-4"
         >
           <span aria-hidden className="h-px w-8 bg-current" />

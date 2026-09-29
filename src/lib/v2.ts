@@ -1,91 +1,195 @@
 /* ============================================================
-   V2 content (29/09): shorter, clearer about the service and about
-   where AERA ends and MITANG's sales team begins. No pricing here.
+   /mitang · final (01/10). Built from the MITANG job post
+   (Marketing & Lead Generation): AERA is the operation the post
+   describes; the MITANG Radar is its infrastructure. No pricing here.
    ============================================================ */
 
-/** Act labels for the V2 reading. */
 export const ACTS_V2 = {
-  challenge: "I · Desafio",
-  service: "II · Serviço",
-  radar: "III · Radar",
-  operation: "IV · Operação",
-  closing: "V · Próximo passo",
+  start: "I · Ponto de partida",
+  operation: "II · Operação",
+  infra: "III · Infraestrutura",
+  closing: "IV · Próximo passo",
 } as const;
 
-/** What AERA takes on: four fronts, one line each (30/09). */
+/** The post, as MITANG wrote it (quoted, not paraphrased). */
+export const JOB = {
+  title: "Analista / Especialista de Marketing & Lead Generation",
+  quote: "Marketing aqui não termina no lead.",
+};
+
+/** MITANG's public fronts (site), used only as context, never explained. */
+export const MITANG_FRONTS = [
+  "Survey Positioning",
+  "Bathymetric & Geophysical",
+  "ROC",
+  "Descomissionamento",
+  "Construction Support",
+  "Onshore Support",
+  "Renewable",
+];
+
+/** What AERA takes on: four fronts. */
 export const FRONTS = [
   {
     n: "01",
-    title: "Mercado & oportunidades",
-    text: "Mapeamento de contas, projetos, sinais e decisores.",
+    title: "Demanda",
+    purpose: "Criar razões para o mercado conversar com a MITANG.",
+    items: [
+      "campanhas de geração de demanda",
+      "LinkedIn",
+      "e-mail marketing",
+      "conteúdo B2B",
+      "ações pós-evento",
+      "mídia paga quando fizer sentido",
+      "campanhas por serviço ou segmento",
+      "landing pages específicas",
+    ],
   },
   {
     n: "02",
-    title: "Prospecção & lead generation",
-    text: "Listas, abordagens, cadências, follow-up e evolução até reunião qualificada.",
+    title: "Prospecção",
+    purpose: "Encontrar e abrir as contas certas.",
+    items: [
+      "ICP",
+      "listas qualificadas",
+      "mapeamento de contas",
+      "decisores",
+      "Sales Navigator quando aplicável",
+      "outbound",
+      "abordagens e cadências",
+      "nutrição e follow-up",
+      "reuniões qualificadas",
+    ],
   },
   {
     n: "03",
     title: "Comunicação comercial",
-    text: "Apresentações, cases, landing pages, conteúdos e materiais específicos para apoiar oportunidades.",
+    purpose: "Dar ao Comercial os argumentos e materiais que cada oportunidade pede.",
+    items: [
+      "apresentações",
+      "cases",
+      "one-pages",
+      "landing pages",
+      "vídeo",
+      "conteúdo técnico",
+      "mensagens",
+      "materiais para reunião",
+      "posicionamento quando necessário",
+    ],
   },
   {
     n: "04",
-    title: "Tecnologia & gestão",
-    text: "CRM, pipeline, automações, IA, dashboards e MITANG Radar.",
+    title: "Inteligência & operação",
+    purpose: "Fazer tudo isso funcionar como processo.",
+    items: [
+      "CRM",
+      "pipeline",
+      "classificação",
+      "métricas de conversão",
+      "automações",
+      "dashboards",
+      "aprendizado",
+      "MITANG Radar",
+    ],
   },
 ];
 
-/** Where AERA ends and MITANG's sales team begins. */
+/** From market to opportunity. `owner`: who carries the step. */
+export const FLOW_V2 = [
+  { step: "Sinal", note: "Identificamos uma movimentação relevante.", owner: "AERA" },
+  { step: "Contas", note: "Definimos quais empresas fazem sentido.", owner: "AERA" },
+  { step: "Decisores", note: "Encontramos por onde entrar.", owner: "AERA" },
+  { step: "Estratégia", note: "Escolhemos mensagem, oferta e canal.", owner: "AERA" },
+  {
+    step: "Ativação",
+    note: "LinkedIn, e-mail, outbound, campanha, evento, conteúdo ou mídia.",
+    owner: "AERA",
+  },
+  { step: "Follow-up", note: "Trabalhamos a relação até existir contexto para reunião.", owner: "AERA" },
+  { step: "Reunião", note: "O Comercial MITANG entra mais preparado.", owner: "AERA + MITANG" },
+  { step: "Oportunidade", note: "A MITANG conduz proposta, negociação e fechamento.", owner: "MITANG" },
+];
+
+/** Who does what along the way. */
 export const HANDOFF = {
-  aera: ["identifica", "pesquisa", "aborda", "nutre", "organiza", "prepara", "gera reunião"],
-  mitang: ["valida tecnicamente", "desenvolve proposta", "negocia", "fecha"],
+  aera: ["pesquisa", "planeja", "cria", "ativa", "aborda", "nutre", "acompanha", "mede", "organiza"],
+  mitang: ["valida tecnicamente", "entra na conversa", "constrói proposta", "negocia", "fecha"],
 };
 
-/** How the operation works: the path, with what happens at each step
-    (absorbs market intelligence, ABM, lead generation and learning). */
-export const FLOW_V2 = [
-  { step: "Mercado", note: "Segmentos, projetos e movimentações lidos de forma contínua." },
-  { step: "Sinal", note: "O fato que torna uma conta relevante agora." },
-  { step: "Conta", note: "Prioridade por aderência aos serviços da MITANG." },
-  { step: "Decisor", note: "Várias pessoas por conta: operação, engenharia, suprimentos." },
-  { step: "Abordagem", note: "Mensagem e material por perfil, com cadência e follow-up." },
-  { step: "Reunião", note: "Conversa qualificada, com contexto e histórico." },
-  { step: "Oportunidade", note: "Nas mãos do comercial da MITANG." },
+/** A market signal may ask for any of these, or a mix. */
+export const RESPONSES = [
+  "contato direto",
+  "campanha",
+  "conteúdo",
+  "landing page",
+  "case",
+  "mídia",
+  "apresentação",
 ];
 
-/** When an opportunity asks for a piece (example of how it works). */
-export const PIECE_V2 = [
-  "oportunidade identificada",
-  "decisores mapeados",
-  "falta um material específico",
-  "AERA cria",
-  "comercial entra mais preparado",
+export const COMPETENCIES = ["Estratégia", "Growth", "Criação", "Tecnologia", "Gestão"];
+
+/** Technical expertise turned into communication that sells. */
+export const EXPERTISE_TO = [
+  "posicionamento",
+  "histórias",
+  "cases",
+  "conteúdos",
+  "campanhas",
+  "materiais comerciais",
+  "apresentações",
+  "experiências digitais",
 ];
 
-/** What stays beyond the routine. */
-export const STAYS = [
-  "Inteligência acumulada",
-  "Processo organizado",
-  "Tecnologia aplicada",
-  "Materiais comerciais",
-  "Sistema que evolui",
-];
-
-/** 90 days, trimmed to show evolution rather than everything possible. */
+/** The first 90 days, concrete. No volume targets before the diagnosis. */
 export const PHASES_V2 = [
-  { range: "00–30 dias", verb: "Mapear", items: ["imersão", "ICP", "contas", "pipeline", "Radar V01"] },
-  { range: "31–60 dias", verb: "Ativar", items: ["sinais", "decisores", "abordagens", "materiais", "prospecção"] },
+  {
+    range: "00–30 dias",
+    verb: "Estruturar",
+    items: [
+      "imersão com Comercial e liderança",
+      "frentes e serviços prioritários",
+      "ICP e segmentos",
+      "mapeamento de contas",
+      "auditoria de base, CRM e materiais",
+      "estrutura de mensagens",
+      "Radar V01",
+      "plano do primeiro ciclo de ativação",
+    ],
+  },
+  {
+    range: "31–60 dias",
+    verb: "Colocar no mercado",
+    items: [
+      "primeiras listas e contas",
+      "decisores",
+      "campanhas e/ou outbound",
+      "LinkedIn e e-mail",
+      "follow-up",
+      "ativos comerciais prioritários",
+      "tratamento de leads de eventos e canais digitais",
+      "pipeline em uso",
+    ],
+  },
   {
     range: "61–90 dias",
-    verb: "Otimizar",
-    items: ["performance", "objeções", "insights", "evolução do Radar", "próximas prioridades"],
+    verb: "Aprender e acelerar",
+    items: [
+      "análise de conversão",
+      "respostas e objeções",
+      "otimização de mensagens",
+      "ajuste de ICP",
+      "teste de novos canais",
+      "evolução das campanhas",
+      "evolução do Radar",
+      "prioridades do próximo ciclo",
+    ],
   },
 ];
 
 export const RHYTHM = [
-  { when: "Semanal", what: "Reunião operacional" },
-  { when: "Contínuo", what: "Execução remota" },
-  { when: "Periódico", what: "Encontros presenciais" },
-  { when: "Mensal", what: "Estratégia e performance" },
+  { when: "Semanal", what: "Operação e pipeline." },
+  { when: "Contínuo", what: "Execução e acompanhamento remoto." },
+  { when: "Periódico", what: "Presença na MITANG para imersão, planejamento e revisão." },
+  { when: "Mensal", what: "Estratégia, performance e prioridades." },
 ];

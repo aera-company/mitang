@@ -4,9 +4,7 @@ import { useRef } from "react";
 import { useGsapContext } from "@/components/motion/useGsapContext";
 import { ACTS, JOB_WORDS } from "@/lib/constants";
 import { playReframe } from "./motion/reframeMotion";
-import { ACTS_V2 } from "@/lib/v2";
 import { Section } from "./ui/Section";
-import { useVariant } from "./variant";
 
 /* Where the post's words land on the desktop stage (% of the stage). */
 const WORD_POS = [
@@ -63,17 +61,8 @@ export function JobReframe() {
     (active) => playReframe(scope.current!, active),
   );
 
-  // V2 (29/09): the "O que a MITANG precisa" block is answered by section 04.
-  const v2 = useVariant() === "v2";
-
   return (
-    <Section
-      ref={scope}
-      id="vaga"
-      index={v2 ? "01" : "02"}
-      label={v2 ? "O desafio" : "O ponto de partida"}
-      act={v2 ? ACTS_V2.challenge : ACTS.thesis}
-    >
+    <Section ref={scope} id="vaga" index="02" label="O ponto de partida" act={ACTS.thesis}>
       {/* ---------- Desktop stage (motion allowed) ---------- */}
       <div className="rf-track rf-desk">
         <div className="rf-stage">
@@ -180,10 +169,6 @@ export function JobReframe() {
         </div>
       </div>
 
-      {v2 ? (
-        <div aria-hidden className="rf-desk h-[14vh]" />
-      ) : (
-        <>
       {/* ---------- What MITANG needs (always in flow) ---------- */}
       <div className="aera-grid pb-[var(--section-y)] lg:pt-24">
         <div data-reveal className="col-span-full lg:col-start-6 lg:col-span-7">
@@ -199,8 +184,6 @@ export function JobReframe() {
           </p>
         </div>
       </div>
-        </>
-      )}
     </Section>
   );
 }
