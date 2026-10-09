@@ -8,7 +8,7 @@ export const ACTS_V2 = {
   start: "I · Ponto de partida",
   operation: "II · Operação",
   infra: "III · Infraestrutura",
-  closing: "IV · Próximo passo",
+  closing: "IV · Proposta",
 } as const;
 
 /** The post, as MITANG wrote it (quoted, not paraphrased). */
@@ -181,3 +181,25 @@ export const RHYTHM = [
   { when: "Periódico", what: "Presença na MITANG para imersão, planejamento e revisão." },
   { when: "Mensal", what: "Estratégia, performance e prioridades." },
 ];
+
+/** The commercial proposal (PDF sent by Tiago on 09/10). The page never
+    shows its values; the acceptance binds to the file by its SHA-256. */
+export const PROPOSAL_PDF = {
+  href: "/proposta/PROPOSTA_COMERCIAL_MITANG_AERA.pdf",
+  file: "PROPOSTA_COMERCIAL_MITANG_AERA.pdf",
+  title: "Proposta comercial AERA × MITANG",
+  version: "outubro 2026",
+  meta: "PDF · 6 páginas · 62 KB",
+  sha256: "848b71b76438e24459050e8f444bb873bc1f2e6c4319e339a251136beec7854f",
+};
+
+/** What the signature accepts (shown on the page and printed on the image). */
+export const ACCEPT_TERMS: [string, string][] = [
+  ["Documento", "Proposta comercial AERA × MITANG, versão de outubro 2026"],
+  ["Escopo", "Operação de Marketing & Lead Generation conectada ao Comercial da MITANG"],
+  ["Ciclo", "Ciclo inicial de 90 dias"],
+  ["Condições", "As descritas no documento em PDF"],
+];
+
+/** Tiago's WhatsApp (same number used in the GAVEA Trade acceptance). */
+export const ACCEPT_WHATSAPP = "5521996836847";

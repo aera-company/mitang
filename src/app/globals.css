@@ -244,6 +244,12 @@ body {
   background: currentColor;
 }
 
+.mitang-mark {
+  -webkit-mask: url("/brand/mitang-mark.png") left center / contain no-repeat;
+  mask: url("/brand/mitang-mark.png") left center / contain no-repeat;
+  background: currentColor;
+}
+
 /* ============================================================
    ACCESSIBILITY
    ============================================================ */

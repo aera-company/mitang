@@ -15,17 +15,12 @@ export function AeraMark({ className = "" }: { className?: string }) {
 }
 
 /**
- * MITANG wordmark — TYPOGRAPHIC PLACEHOLDER until the official logo file is
- * provided by MITANG (decided 23/09: never pulled from the public site).
+ * MITANG logo (official, from the brand manual MITANG shared on 09/10),
+ * masked so it takes the current colour, like the AERA mark.
  */
 export function MitangWordmark({ className = "" }: { className?: string }) {
   return (
-    <span
-      className={`inline-block font-semibold leading-none tracking-[0.06em] ${className}`}
-      data-placeholder="mitang-logo"
-    >
-      MITANG
-    </span>
+    <span role="img" aria-label="MITANG" className={`mitang-mark inline-block aspect-[1647/356] ${className}`} />
   );
 }
 
@@ -37,7 +32,7 @@ export function Pairing({ className = "" }: { className?: string }) {
       <span aria-hidden className="type-index text-[var(--muted)]">
         ×
       </span>
-      <MitangWordmark className="text-[14px]" />
+      <MitangWordmark className="h-[15px]" />
     </span>
   );
 }

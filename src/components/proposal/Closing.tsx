@@ -46,7 +46,7 @@ const COPY: Record<Variant, (typeof BASE)["intro"]> = {
   ...BASE,
   v2: {
     ...BASE.intro,
-    index: "07",
+    index: "08",
     lead: "Uma reunião para definir quais frentes comerciais fazem mais sentido ativar primeiro e como a AERA pode operar essa estrutura junto ao time da MITANG.",
     note: undefined,
   },

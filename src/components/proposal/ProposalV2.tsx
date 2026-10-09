@@ -2,6 +2,7 @@ import { Adds } from "./Adds";
 import { Assumes } from "./Assumes";
 import { Closing } from "./Closing";
 import { Hero } from "./Hero";
+import { ProposalAccept } from "./ProposalAccept";
 import { HowItWorks } from "./HowItWorks";
 import { RadarV2 } from "./RadarV2";
 import { StartingPoint } from "./StartingPoint";
@@ -24,7 +25,8 @@ export function ProposalV2() {
         <Adds />
         {/* III · Infraestrutura */}
         <RadarV2 />
-        {/* IV · Próximo passo */}
+        {/* IV · Proposta · V · Próximo passo */}
+        <ProposalAccept />
         <Closing />
       </main>
     </VariantProvider>
