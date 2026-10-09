@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
+  // The commercial version (with pricing) was removed on 09/10. Old links
+  // land on the presentation instead of a 404.
+  async redirects() {
+    return [
+      { source: "/", destination: "/mitang", permanent: false },
+      { source: "/mitang/proposta", destination: "/mitang", permanent: false },
+    ];
+  },
 };
 
 export default nextConfig;

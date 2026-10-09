@@ -27,11 +27,11 @@ em `next.config.ts` (existe `~/package-lock.json`).
 - Logo MITANG: wordmark tipográfico placeholder (`MitangWordmark`) até o arquivo oficial.
 - Cores MITANG: teal `#0D6873`, petróleo `#021C25` (tokens `--teal`, `--petrol`),
   só como informação ativa. O PASS 01 ainda usa só neutros.
-- Modelo comercial (revisto 24/09): piloto de 90 dias a R$ 9.800/mês, implantação incluída, total do ciclo R$ 29.400. Sem linguagem de desconto ou condição especial.
+- Versão comercial (com preço) removida em 09/10: `/` e `/mitang/proposta` redirecionam para `/mitang`. Não publicar preços neste repo.
 
 ## Estrutura
 
-`Proposal.tsx` compõe 18 seções em 5 atos (17 em /mitang). Dados fictícios do MITANG Radar em `src/lib/radar.ts`. Seções em
+`ProposalV2.tsx` compõe /mitang (Hero + 6 seções, conteúdo em `src/lib/v2.ts`). Dados fictícios do MITANG Radar em `src/lib/radar.ts`. Seções em
 `src/components/proposal/`; conteúdo e listas em `src/lib/constants.ts`.
 `?h=en` mostra a headline alternativa da hero ("From signal to opportunity").
 
