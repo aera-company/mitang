@@ -58,7 +58,7 @@ export function Closing() {
   const c = COPY[useVariant()];
 
   return (
-    <Section ref={scope} id="proximo-passo" index={c.index} label="Próximo passo" act={ACTS.closing} state="petrol">
+    <Section ref={scope} id="proximo-passo" index={c.index} label="Próximo passo" act={ACTS.closing} state="petrol" contours="60% 80%">
       <div className="aera-grid section-pad relative min-h-[90svh] content-between gap-y-16">
         {/* The hero's plot returns, small: the next point to locate. */}
         <div

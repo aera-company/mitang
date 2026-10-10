@@ -48,8 +48,8 @@ export function Adds() {
           </ol>
         </div>
         <p data-reveal className="type-lead col-span-full border-t border-[var(--line-strong)] pt-8 lg:col-start-7 lg:col-span-6">
-          A diferença da AERA está em conectar inteligência, estratégia,
-          prospecção, criação e tecnologia dentro da mesma resposta comercial.
+          A AERA conecta inteligência, estratégia, prospecção, criação e
+          tecnologia dentro da mesma resposta comercial.
         </p>
 
         {/* Five connected competencies. */}

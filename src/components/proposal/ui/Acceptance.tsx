@@ -252,10 +252,10 @@ export function Acceptance() {
     const F = getComputedStyle(document.body).fontFamily || "system-ui, sans-serif";
     const X = 80, MW = W - 160;
     const rule = (y: number) => { g.fillStyle = "#DEDBD2"; g.fillRect(X, y, MW, 2); };
-    const label = (t: string, y: number) => { g.fillStyle = "#0D6873"; g.font = `600 20px ${F}`; spaced(g, "4px"); g.fillText(t, X, y); spaced(g, "0px"); };
+    const label = (t: string, y: number) => { g.fillStyle = "#016874"; g.font = `600 20px ${F}`; spaced(g, "4px"); g.fillText(t, X, y); spaced(g, "0px"); };
 
     g.fillStyle = "#FFFFFF"; g.fillRect(0, 0, W, c.height);
-    g.fillStyle = "#021C25"; g.fillRect(0, 0, W, 16);
+    g.fillStyle = "#011C25"; g.fillRect(0, 0, W, 16);
     let y = 96;
     let lx = X;
     if (aera) { g.drawImage(aera, lx, y + 3); lx += aera.width + 22; }

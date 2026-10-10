@@ -24,8 +24,8 @@ export function ProposalAccept() {
           A proposta, para ler e aprovar<span className="text-[var(--signal)]">.</span>
         </h2>
         <p data-reveal className="type-lead col-span-full self-end lg:col-start-8 lg:col-span-5">
-          Escopo, condições comerciais e próximos passos estão no documento em
-          PDF. Para aprovar, preencha seus dados e assine no quadro.
+          Escopo, condições e próximos passos estão no documento. Com o
+          aceite, partimos para a imersão inicial com liderança e Comercial.
         </p>
 
         {/* Download */}

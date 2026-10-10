@@ -25,7 +25,7 @@ em `next.config.ts` (existe `~/package-lock.json`).
 - Inglês só em rótulos de sistema (Intelligence, Account map…); narrativa em PT.
 - Contato: `sales@aera.company`.
 - Logo MITANG oficial (extraído do manual de marca em 09/10): `public/brand/mitang-mark.png`, aplicado como máscara (`.mitang-mark`).
-- Cores MITANG: teal `#0D6873`, petróleo `#021C25` (tokens `--teal`, `--petrol`),
+- Cores MITANG (manual de marca, 09/10): teal `#016874`, teal claro `#4FA3B2`, petróleo `#011C25`, azul `#012D40`, cinza `#EBEBEB` (tokens `--teal`, `--teal-lift`, `--petrol`, `--navy`, `--paper`); contornos `.mitang-contours`, destaque `.mitang-callout`, etiquetas `.mitang-chip`, Montserrat só nesses elementos,
   só como informação ativa. O PASS 01 ainda usa só neutros.
 - Versão comercial (com preço) removida em 09/10: `/` e `/mitang/proposta` redirecionam para `/mitang`. A página não mostra valores; eles ficam só no PDF da proposta (`public/proposta/`), baixado na seção 07 com aceite por assinatura.
 

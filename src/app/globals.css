@@ -3,22 +3,24 @@
 /* ============================================================
    AERA × MITANG — TOKENS
    Base from the brief (§7); signal colours sampled from MITANG
-   (teal #0D6873, deep petrol #021C25). Accent = active information,
+   (brand manual 09/10: teal #016874, petrol #011C25, navy #012D40). Accent = active information,
    never decoration: located points, the active step, AERA's coverage.
    ============================================================ */
 :root {
   --carbon: #080a0b;
-  --paper: #f1efe8;
+  --paper: #ebebeb;
   --ink: #0e1113;
   --steel: #8e9498;
-  --petrol: #021c25;
-  --teal: #0d6873;
-  /* Teal lifted for dark grounds (7.4:1 on carbon, 6.5:1 on petrol). */
-  --teal-lift: #5fa9b1;
+  --petrol: #011c25;
+  /* MITANG navy and contour grey (brand manual, 09/10). */
+  --navy: #012d40;
+  --teal: #016874;
+  /* Teal lifted for dark grounds (MITANG light teal: 6.8:1 on carbon, 6.0:1 on petrol). */
+  --teal-lift: #4fa3b2;
 
-  --line-dark: rgba(241, 239, 232, 0.12);
+  --line-dark: rgba(235, 235, 235, 0.12);
   --line-light: rgba(14, 17, 19, 0.12);
-  --muted-dark: rgba(241, 239, 232, 0.58);
+  --muted-dark: rgba(235, 235, 235, 0.58);
   --muted-light: rgba(14, 17, 19, 0.62);
 
   /* Active state — sections re-map these (see .state-dark / .state-light). */
@@ -26,10 +28,10 @@
   --fg: var(--paper);
   --muted: var(--muted-dark);
   --line: var(--line-dark);
-  --line-strong: rgba(241, 239, 232, 0.24);
+  --line-strong: rgba(235, 235, 235, 0.24);
   /* Active information — the only place colour enters the page. */
   --signal: var(--teal-lift);
-  --signal-soft: rgba(95, 169, 177, 0.16);
+  --signal-soft: rgba(79, 163, 178, 0.16);
 
   /* Grid — 12 columns desktop, 4 below 1024. */
   --cols: 12;
@@ -66,9 +68,9 @@
   --fg: var(--paper);
   --muted: var(--muted-dark);
   --line: var(--line-dark);
-  --line-strong: rgba(241, 239, 232, 0.24);
+  --line-strong: rgba(235, 235, 235, 0.24);
   --signal: var(--teal-lift);
-  --signal-soft: rgba(95, 169, 177, 0.16);
+  --signal-soft: rgba(79, 163, 178, 0.16);
   background: var(--bg);
   color: var(--fg);
 }
@@ -77,11 +79,11 @@
 .state-petrol {
   --bg: var(--petrol);
   --fg: var(--paper);
-  --muted: rgba(241, 239, 232, 0.6);
-  --line: rgba(127, 189, 195, 0.14);
-  --line-strong: rgba(127, 189, 195, 0.3);
+  --muted: rgba(235, 235, 235, 0.6);
+  --line: rgba(79, 163, 178, 0.14);
+  --line-strong: rgba(79, 163, 178, 0.3);
   --signal: var(--teal-lift);
-  --signal-soft: rgba(95, 169, 177, 0.2);
+  --signal-soft: rgba(79, 163, 178, 0.2);
   background: var(--bg);
   color: var(--fg);
 }
@@ -93,7 +95,7 @@
   --line: var(--line-light);
   --line-strong: rgba(14, 17, 19, 0.24);
   --signal: var(--teal);
-  --signal-soft: rgba(13, 104, 115, 0.12);
+  --signal-soft: rgba(1, 104, 116, 0.12);
   background: var(--bg);
   color: var(--fg);
 }
@@ -477,4 +479,41 @@ button,
     opacity: 0;
     transform: translateY(6px);
   }
+}
+
+/* ============================================================
+   MITANG IV (brand manual, 09/10): topographic contour lines,
+   the dark callout with a teal offset shadow, keyword chips.
+   ============================================================ */
+.mitang-contours {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--contour, rgba(1, 45, 64, 0.09));
+  -webkit-mask: url("/brand/mitang-contours.svg") var(--ct-pos, center) / cover no-repeat;
+  mask: url("/brand/mitang-contours.svg") var(--ct-pos, center) / cover no-repeat;
+}
+
+.state-petrol .mitang-contours {
+  --contour: rgba(79, 163, 178, 0.11);
+}
+
+.mitang-callout {
+  background: var(--petrol);
+  color: var(--paper);
+  border-radius: 14px;
+  box-shadow: 10px 10px 0 var(--teal);
+  font-family: var(--font-mitang-src), var(--font-sans-src), sans-serif;
+}
+
+.mitang-chip {
+  border-radius: 8px;
+  background: var(--navy);
+  color: #fff;
+  font-family: var(--font-mitang-src), var(--font-sans-src), sans-serif;
+}
+
+.mitang-chip:nth-child(3n + 2) {
+  background: var(--teal);
 }

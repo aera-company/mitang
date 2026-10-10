@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Instrument_Sans } from "next/font/google";
+import { Geist_Mono, Instrument_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 
 // Instrument Sans carries display and body (wdth axis for the semi-condensed
@@ -8,6 +8,14 @@ const sans = Instrument_Sans({
   variable: "--font-sans-src",
   subsets: ["latin"],
   axes: ["wdth"],
+});
+
+// Montserrat (MITANG's typeface) only where MITANG speaks: the callout with
+// the job-post quote and the keyword chips (brand manual, 09/10).
+const mitang = Montserrat({
+  variable: "--font-mitang-src",
+  subsets: ["latin"],
+  weight: ["500", "600"],
 });
 
 const mono = Geist_Mono({
@@ -39,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${sans.variable} ${mono.variable} antialiased`}
+      className={`${sans.variable} ${mono.variable} ${mitang.variable} antialiased`}
       suppressHydrationWarning
     >
       <head>

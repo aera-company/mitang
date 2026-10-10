@@ -12,6 +12,8 @@ type Props = {
   act: string;
   state?: "dark" | "light" | "petrol";
   className?: string;
+  /** MITANG IV contour lines behind the section; value = mask position. */
+  contours?: string;
   children: ReactNode;
   ref?: Ref<HTMLElement>;
 };
@@ -28,6 +30,7 @@ export function Section({
   act,
   state = "dark",
   className = "",
+  contours,
   children,
   ref,
 }: Props) {
@@ -40,8 +43,11 @@ export function Section({
       ref={ref}
       id={id}
       aria-labelledby={`${id}-title`}
-      className={`state-${state} relative ${className}`}
+      className={`state-${state} relative ${contours ? "isolate overflow-hidden" : ""} ${className}`}
     >
+      {contours && (
+        <span aria-hidden className="mitang-contours" style={{ ["--ct-pos" as string]: contours }} />
+      )}
       <div className="aera-grid pt-6">
         <div className="col-span-full flex items-baseline justify-between gap-6 border-t border-[var(--line)] pt-3 text-[var(--muted)]">
           <p className="flex items-baseline gap-4">

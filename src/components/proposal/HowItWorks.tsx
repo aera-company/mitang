@@ -17,7 +17,7 @@ export function HowItWorks() {
   const aeraEnd = FLOW_V2.findIndex((f) => f.owner !== "AERA"); // the meeting
 
   return (
-    <Section ref={scope} id="operacao" index="04" label="Como transformamos mercado em oportunidade" act={ACTS_V2.operation} state="petrol">
+    <Section ref={scope} id="operacao" index="04" label="Como transformamos mercado em oportunidade" act={ACTS_V2.operation} state="petrol" contours="80% 40%">
       <div className="aera-grid section-pad gap-y-16">
         <h2 data-reveal id="operacao-title" className="type-h2 col-span-full lg:col-span-9">
           Do sinal à oportunidade.
